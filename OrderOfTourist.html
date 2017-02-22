@@ -1,0 +1,310 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <script type="text/javascript" language="javascript" src="js/MoneyFormat/accounting.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <title>我的订单</title>
+</head>
+
+<body>
+<div id="pdf4" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">数据加载中，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+        <div id="out_box">
+            <a href="index.html"><div id="logo"></div></a>
+            <div id="navigator">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="Guider.html">旅行管家</a></li>
+                    <li><a href="Booking.html">专属定制</a></li>
+                    <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="loginTip" style="padding:0;">
+                <div class="loginRight" style="width:100px;">
+                    <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                </div>
+                <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="p_middleBox">
+        <div class="p_middleBoxContainer">
+            <div class="p_leftMeu">
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                            <div class="pHead_rightText">我是旅行管家</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <!-- <li><a name="Production.html" data-required="1">我的产品</a></li> -->
+                            <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                            <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                            <div class="pHead_rightText">我是游客</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                            <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                            <!-- <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                            <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                            <div class="pHead_rightText">个人信息</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="PCenter.html" data-required="0">个人资料</a></li>
+                            <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                            <!-- <li><a name="Message.html" data-required="0">我的消息</a></li> -->
+                            <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="p_rightBox">
+                <div class="p_header">我的订单</div>
+                <div class="p_allMsg">
+                    <div class="header_float">
+                        <div class="p_allMsg_Header"  style="color:#ff9500"><span name="0" class="statusBar">当前订单</span><span id="currentOrder"><!-- (0) --></span></div>
+                    </div>
+                    <div class="header_float">
+                        <div class="p_allMsg_Header p_allMsg_Header_Areal"><span name="1" class="statusBar">历史订单</span><span id="historyOrder"><!-- (0) --></span></div>
+                    </div>
+                    <!-- <div class="header_float" style="height:30px;margin-top:20px;width:698px;text-align:right;color:#a6a6a6">
+                        <span>订单号：</span><input type="text" id="searchBox" class="searchStyle" style="text-indent:5px;" placeholder="请填写需要查询的订单号"/><input  class="searchStyle" style="height:32px;vertical-align:bottom;width:58px;background-image:url(images/buttonbg.jpg);margin-left:5px;" type="button" id="searchBt" value="查询"/>
+                    </div> -->
+                </div>
+                <div class="nothingTip" style="display:none;">
+                    <div class="tips">
+                        <img src="images/Nothing.png" style="vertical-align: middle;margin-top:10px;"/>
+                    </div>
+                    <div class="tips" style="width:260px;margin-left:20px;background:none;">
+                        <div class="tipTitle"  style="font-size:16px;"><span  id="uName"></span>，你好</div>
+                        <div class="tipTitle">欢迎登陆TT旅行网！</div>
+                        <div class="tipTitle">当前没有订单</div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+                <div class="p_allMsg p_allMsg_Areal" style="height:auto;border:none;">
+                        <div class="o_name o_nameArea" style="width:320px;">产品名称</div>
+                        <div class="o_name o_nameArea">价格</div>
+                        <div class="o_name o_nameArea">数量</div>
+                        <div class="o_name o_nameArea">订单金额</div>
+                        <div class="o_name o_nameArea">订单状态</div>
+                        <div class="o_name o_nameArea" style="width:140px;">操作</div>
+                        <div style="clear:both;"></div>
+                </div>
+                <div id="orderContent"></div>
+                <!--<div id="orderContent">
+                    <div class="p_allMsg p_allMsg_Areal" style="height:auto;border:none;">
+                        <table class="o_table" width="100%;" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td colspan="6" style="padding:0;">
+                                    <div class="header">
+                                        <div class="dleft">订单号： DEMA221<span class="dtime">下单日期:  2016-07-07  12:21</span></div>
+                                        <div class="dleft" style="text-align:right;">
+                                            <span>订单总额：</span>
+                                            <span class="price_marker" style="font-size:14px;">￥</span><span class="price price_more">200.00</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="middle" align="center" style="width:788px;">
+                                    <div class="o_name"  style="margin-left:10px;">
+                                        <div class="o_imgbox"><img src="images/p_header.jpg"/></div>
+                                        <div class="o_text"></div>
+                                    </div>
+                                    <div class="o_name" style="width:185px;line-height: 20px;margin-left:5px;">
+                                        宝瓶口景区门票宝瓶口景区门票
+                                        宝瓶口景区门票宝瓶口
+                                    </div>
+                                    <div class="o_name">
+                                        <span class="price_marker">￥</span><span class="price">200.00</span>
+                                    </div>
+                                    <div class="o_name">2</div>
+                                    <div class="o_name"><span class="price_marker">￥</span><span class="price">200.00</span></div>
+                                    <div class="o_name">代付款</div>
+                                </td>
+                                <td valign="middle" align="center" rowspan="2"  style="width:140px">
+                                    <a class="operatBt">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="middle" align="center">
+                                    <div class="o_name"  style="margin-left:10px;">
+                                        <div class="o_imgbox"><img src="images/p_header.jpg"/></div>
+                                        <div class="o_text"></div>
+                                    </div>
+                                    <div class="o_name" style="width:185px;line-height: 20px;margin-left:5px;">
+                                        宝瓶口景区门票宝瓶口景区门票
+                                        宝瓶口景区门票宝瓶口
+                                    </div>
+                                    <div class="o_name">
+                                        <span class="price_marker">￥</span><span class="price">200.00</span>
+                                    </div>
+                                    <div class="o_name">2</div>
+                                    <div class="o_name">￥200</div>
+                                    <div class="o_name">代付款</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="p_allMsg p_allMsg_Areal" style="height:auto;border:none;">
+                        <table class="o_table" width="100%;" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td colspan="6" style="padding:0;">
+                                    <div class="header">
+                                        <div class="dleft">订单号： DEMA221<span class="dtime">下单日期:  2016-07-07  12:21</span></div>
+                                        <div class="dleft" style="text-align:right;">
+                                            <span>订单总额：</span>
+                                            <span class="price_marker" style="font-size:14px;">￥</span><span class="price price_more">200.00</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="middle" align="center" style="width:788px;">
+                                    <div class="o_name"  style="margin-left:10px;">
+                                        <div class="o_imgbox"><img src="images/p_header.jpg"/></div>
+                                        <div class="o_text"></div>
+                                    </div>
+                                    <div class="o_name" style="width:185px;line-height: 20px;margin-left:5px;">
+                                        宝瓶口景区门票宝瓶口景区门票
+                                        宝瓶口景区门票宝瓶口
+                                    </div>
+                                    <div class="o_name">
+                                        <span class="price_marker">￥</span><span class="price">200.00</span>
+                                    </div>
+                                    <div class="o_name">2</div>
+                                    <div class="o_name"><span class="price_marker">￥</span><span class="price">200.00</span></div>
+                                    <div class="o_name">代付款</div>
+                                </td>
+                                <td valign="middle" align="center" rowspan="2"  style="width:140px">
+                                    <a class="operatBt">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" valign="middle" align="center">
+                                    <div class="o_name"  style="margin-left:10px;">
+                                        <div class="o_imgbox"><img src="images/p_header.jpg"/></div>
+                                        <div class="o_text"></div>
+                                    </div>
+                                    <div class="o_name" style="width:185px;line-height: 20px;margin-left:5px;">
+                                        宝瓶口景区门票宝瓶口景区门票
+                                        宝瓶口景区门票宝瓶口
+                                    </div>
+                                    <div class="o_name">
+                                        <span class="price_marker">￥</span><span class="price">200.00</span>
+                                    </div>
+                                    <div class="o_name">2</div>
+                                    <div class="o_name"><span class="price_marker">￥</span><span class="price">200.00</span></div>
+                                    <div class="o_name">代付款</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>-->
+                <div id="pager">
+                    <div id="pagers" class="orderOfTourist">
+
+                    </div>
+                    <div class="jumpBt">
+                        <div>第<input type="text" class="p_jumpBt" value="" id="jump_page"/>页<input type="button" class="p_jumpBt" style="width:33px;height:30px;margin-left:20px;text-indent:0;" value="GO"/></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $(".themeItemBox").css("line-height","30px");
+    $(document).ready(function(){
+        checkUser(2);
+        touristOrders(1);
+    });
+</script>
+</body>
+</html>

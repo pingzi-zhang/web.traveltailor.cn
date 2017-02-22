@@ -1,0 +1,614 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/common-a.css" />
+    <link rel="stylesheet" type="text/css" href="css/pcenter.css" />
+
+    <link rel="stylesheet" type="text/css" href="css/datetime/jquery.datetimepicker.css" />
+    <script type="text/javascript" language="javascript" src="js/datetime/jquery.datetimepicker.js"></script>
+    <!--kindeditor插件-->
+    <link rel="stylesheet" href="js/kindeditor-4.1.10/themes/default/default.css" />
+    <script charset="utf-8" src="js/kindeditor-4.1.10/kindeditor.js"></script>
+    <script charset="utf-8" src="js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="js/editor.js"></script>
+    <title>添加产品</title>
+</head>
+
+<body>
+<div id="pdf4" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">正在上传，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="pdf2" class="out_box">
+    <div class="out_box_infirst" style="background-color:transparent;">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                        <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+        <div id="out_box">
+            <a href="Index.html"><div id="logo"></div></a>
+            <div id="navigator">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="Guider.html">旅行管家</a></li>
+                    <li><a href="Booking.html">专属定制</a></li>
+                    <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="loginTip" style="padding:0;">
+                <div class="loginRight" style="width:100px;">
+                    <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                </div>
+                <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="p_middleBox">
+        <div class="p_middleBoxContainer">
+            <div class="p_leftMeu">
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                            <div class="pHead_rightText">我是旅行管家</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="Production.html" data-required="1">我的产品</a></li>
+                            <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                            <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                            <div class="pHead_rightText">我是游客</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                            <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                            <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                            <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                            <div class="pHead_rightText">个人信息</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="PCenter.html" data-required="0">个人资料</a></li>
+                            <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                            <li><a name="Message.html" data-required="0">我的消息</a></li>
+                            <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="p_rightBox rightBg">
+                <div class=" productContent">
+                    <div class="productContentItem">
+                        <div class="p_header" style="text-indent:0;">我的产品</div>
+                        <div class="t-title">基本信息</div>
+                        <div class="product-name same-box">
+                            <div class="pLeft" style="width:142px;">产品类型： <span id="catorgray">门票</span></div><div class="pLeft">管家：<span id="manager">网一</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="product-name same-box"><div class="pLeft"><i>* </i>城市：</div>
+                            <div class="pRight">
+                                <div class="selectArea">
+                                    <div class="manBox_left"></div>
+                                    <div class="manBox_right"></div>
+                                    <select id="deliverprovince" name="deliverprovince"></select>
+                                </div>
+                                <div class="selectArea">
+                                    <div class="manBox_left"></div>
+                                    <div class="manBox_right"></div>
+                                    <select id="delivercity" name="delivercity"></select>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="sell-price same-box">
+                            <div class="pLeft"><i>* </i>景区名称：</div>
+                            <div class="pRight">
+                                <div class="selectArea">
+                                    <div class="manBox_left"></div>
+                                    <div class="manBox_right"></div>
+                                    <div id="jingqu"></div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="sell-price same-box">
+                            <div class="pLeft"><i>* </i>产品名称：</div>
+                            <div class="pRight"><input type="text" id="decMarketPrice" class="longInput" placeholder="请输入产品名称"/></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="sell-price same-box">
+                            <div class="pLeft"><i>* </i>门票类型：</div>
+                            <div class="pRight">
+                                <div class="selectArea" style="width:388px;">
+                                    <div class="manBox_left">全价票</div>
+                                    <div class="manBox_right"></div>
+                                    <select class="longinput" id="ticketType" style="width:100%;">
+                                        <option value="全价票">全价票</option>
+                                        <option value="半价票">半价票</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="storage-rate same-box">
+                            <div class="pLeft"><i>* </i>产品有效期：</div>
+                            <div class="pRight">
+                                <div class="rigthInput">
+                                    <div class="timers">
+                                        <img src="images/date.png" style="position:absolute;left:145px;top:7px;"/>
+                                        <input type="text" name="birth" readonly="readonly" style="width:168px;" placeholder="年/月/日(自动上架)" id="startTime" value=""/>
+                                    </div>
+                                    <div class="timers" style="width:26px;border-bottom:1px solid #c5c5c5;height:15px;margin:0 12px">
+                                    </div>
+                                    <div class="timers">
+                                        <img src="images/date.png" style="position:absolute;left:145px;top:7px;"/>
+                                        <input type="text" name="birth" readonly="readonly"  style="width:168px;" placeholder="年/月/日(自动上架)" id="EndTime" value=""/>
+                                    </div>
+                                    <i style="font-size:14px;color:#666;">&nbsp;*若不填，有效期不做限制</i>
+                                    <div style="clear:both;"></div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="storage-rate same-box">
+                            <div class="pLeft"><i>* </i>库存：</div>
+                            <div class="pRight"><input type="text" id="balance" class="longInput" placeholder="如：1-9999"/></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="storage-rate same-box">
+                            <div class="pLeft"><i>* </i>提前预定时间：</div>
+                            <div class="pRight">
+                                <div  class="timers">
+                                    <input type="text" id="bookTime" placeholder="输入数字"/>
+                                </div>
+                                <div class="timers" style="width:70px;text-indent:5px;">
+                                    小时
+                                </div>
+                                <div  class="timers" style="width:155px;"><input placeholder="系统默认时间" style="width:148px"/></div>
+                                <i style="font-size:14px;color:#666;"> *当天预订时间超过17:00前不可预订，填写0 为不作限制</i>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="productContent">
+<div class="productContentItem">
+    <div class="t-title">产品价格</div>
+    <div class="storage-rate same-box">
+        <div class="pLeft"><i>* </i>日期：</div>
+        <div class="pRight">
+            <div class="rigthInput">
+                <div class="timers timersArea">
+                    <img src="images/date.png" style="position:absolute;left:87px;top:7px;"/>
+                    <input type="text" name="birth" readonly="readonly" style="width:110px;" placeholder="2016/9/8" id="price_startTime" value="2016/9/8"/>
+                </div>
+                <div class="timers" style="width:20px;border-bottom:1px solid #c5c5c5;height:15px;margin:0 12px">
+                </div>
+                <div class="timers timersArea">
+                    <img src="images/date.png" style="position:absolute;left:87px;top:7px;"/>
+                    <input type="text" name="birth" readonly="readonly"  style="width:110px;" placeholder="2016/9/8" id="price_EndTime" value="2016/9/8"/>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="storage-rate same-box">
+        <div class="pLeft"><i>* </i>分销价：</div>
+        <div class="pRight">
+            <div class="rigthInput">
+                <div class="timers timersArea">
+                    <input type="text" name="fPrice" style="width:110px;" placeholder="100" id="fPrice" value=""/>
+                </div>
+                <div class="timers timersArea" style="margin-left:44px;width:auto">
+                    <i>*</i>销售价：<input type="text" name="birth"  style="width:110px;" placeholder="100" id="sPrice" value=""/>
+                </div>
+                <div class="timers timersArea" style="margin-left:44px;width:auto">
+                    <div style="display:inline-block;vertical-align: top;"><i>*</i>币种：</div><div class="selectArea">
+                        <div class="manBox_left">RMB</div>
+                        <div class="manBox_right"></div>
+                            <select class="longinput" id="moneyType" style="width:100%;">
+                                <option value="RMB">RMB</option>
+                            </select>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="storage-rate same-box">
+        <div class="pLeft"><i>* </i>星期：</div>
+        <div class="pRight">
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周一
+                <input type="checkbox" value="周一" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周二
+                <input type="checkbox" value="周二" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周三
+                <input type="checkbox" value="周三" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周四
+                <input type="checkbox" value="周四" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周五
+                <input type="checkbox" value="周五" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周六
+                <input type="checkbox" value="周六" style="height:16px;" class="weekday"/>
+            </div>
+            <div class="weekItem">
+                <img src="images/empt.jpg"/>&nbsp;&nbsp;周日
+                <input type="checkbox" value="周日" style="height:16px;" class="weekday"/>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="storage-rate same-box">
+        <div class="pLeft"></div>
+        <div class="pRight">
+            <div class="rigthInput">
+                <input type="button" value="保存价格" class="savePrice" style="border:none;"/>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="storage-rate same-box">
+        <div class="savePriceBox">
+            <table cellpadding="0" cellspacing="0">
+                <tr><th width="23%">日期</th><th width="23%">星期</th><th  width="15.5%">售价</th><th width="15.5%">分销价</th><th width="23%">操作</th></tr>
+                <tr>
+                    <td>2016-8-1 ~ 2016-9-30</td>
+                    <td style="text-align:left;">
+                        <div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div>
+                    </td>
+                    <td>成年人：￥100</td>
+                    <td>成年人：￥100</td>
+                    <td>
+                        <input type="button" value="编辑" class="priceOperate" style="border:none;"/>
+                        <input type="button" value="删除" class="priceOperate" style="border:none;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016-8-1 ~ 2016-9-30</td>
+                    <td style="text-align:left;">
+                        <div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div>
+                    </td>
+                    <td>成年人：￥100</td>
+                    <td>成年人：￥100</td>
+                    <td>
+                        <input type="button" value="编辑" class="priceOperate" style="border:none;"/>
+                        <input type="button" value="删除" class="priceOperate" style="border:none;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016-8-1 ~ 2016-9-30</td>
+                    <td style="text-align:left;">
+                        <div>周一</div><div>周二</div><div>周三</div><div>周四</div><div>周五</div>
+                    </td>
+                    <td>成年人：￥100</td>
+                    <td>成年人：￥100</td>
+                    <td>
+                        <input type="button" value="编辑" class="priceOperate" style="border:none;"/>
+                        <input type="button" value="删除" class="priceOperate" style="border:none;"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+                <div class="productContent">
+                    <div class="productContentItem">
+                        <div class="t-title">产品描述</div>
+                        <div class="product-describe same-box">
+                            <div class="pLeft"><i>* </i>产品描述：</div>
+                            <div class="pRight" style="height:auto;">
+                                <div class="product-describe-box">
+                                    <div class="description">请介绍一下你的产品</div>
+                                    <div id="detailContent" style="width:97%;height:auto;word-break:break-all;padding-left:10px;text-align:left;margin:0;">
+
+                                    </div>
+                                    <div class="add-text-information" style="position:relative;z-index:10;">
+                                        <div id="add-text-information"></div>
+                                        <div id="textContainer" style=" position:absolute;left:210px;top:0;margin:0; display:none;">
+                                            <div style="position:relative;margin:0;">
+                                                <div style="height:150px;width:500px;">
+                                                    <div style="width:20px;height:20px;float:left;position:relative;">
+                                                        <div style="width:0px;height:0;z-index:1;margin:0;border:20px solid #d9d9d9;border-left:20px solid transparent;border-top:20px solid transparent;border-bottom:20px solid transparent;position:absolute;top:0;left:0;"></div>
+                                                        <div style="width:0px;height:0;z-index:1;margin:0;border:18px solid #f0f0ee;border-left:20px solid transparent;border-top:19px solid transparent;border-bottom:19px solid transparent;position:absolute;top:1px;left:2px;"></div>
+                                                    </div>
+                                                    <div style="float:left;width:250px;height:350px;margin-left:19px;box-shadow: 5px 5px 10px #E2E2E2;-webkit-box-shadow: 5px 5px 10px #E2E2E2;-o-box-shadow: 5px 5px 10px #E2E2E2;-moz-box-shadow: 5px 5px 10px #E2E2E2;position:relative;background-color:#ff9500;">
+                                                        <div style="width:250px;height:270px;margin:0;z-index:0;position:absolute;top:0;">
+                                                            <textarea id="pDescription" style="width:250px;height:150px;margin:0;padding:5px;" placeholder="请输入你的个人描述"></textarea>
+                                                        </div>
+                                                        <div style="text-align:center;width:250px;position:absolute;bottom:8px;line-height:30px;">
+                                                            <input type="button" value="保存" style="display:inline;text-indent:0;background-image:url(images/buttonbg.jpg);width:50px;"  id="saveButton"/>
+                                                            <input type="button" value="关闭" onclick="$('#textContainer').hide()" style="display:inline;margin-left:20px;text-indent:0;background-image:url(images/buttonbg.jpg);width:50px;"/>
+                                                        </div>
+                                                    </div>
+                                                    <div style="clear:both;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span>添加文字信息</span>
+                                    </div>
+                                    <div class="add-img-information" style="position:relative;">
+                                        <span>添加图片信息</span>
+                                        <input type="button" value="" id="addPic"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="booking-notice same-box">
+                            <div class="pLeft"><i>* </i>预订须知：</div>
+                            <div class="pRight boxHeight">
+                                <textarea placeholder="请填写预订须知"></textarea>
+                                <div class="areaNumTip">0/150</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="booking-notice same-box">
+                            <div class="pLeft">重要条款：</div>
+                            <div class="pRight boxHeight">
+                                <textarea placeholder="请填写您的条款说明"></textarea>
+                                <div class="areaNumTip">0/100</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="booking-notice same-box">
+                            <div class="pLeft"><i>* </i>使用方法：</div>
+                            <div class="pRight boxHeight">
+                                <textarea placeholder="请填写产品的使用方法"></textarea>
+                                <div class="areaNumTip">0/80</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="booking-notice same-box">
+                            <div class="pLeft"><i>* </i>退改规则：</div>
+                            <div class="pRight boxHeight">
+                                <textarea placeholder="请填写产品的退改规则"></textarea>
+                                <div class="areaNumTip">0/80</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="booking-notice same-box">
+                            <div class="pLeft"><i>* </i>推荐理由：</div>
+                            <div class="pRight boxHeight">
+                                <textarea placeholder="请填写产品的推荐理由"></textarea>
+                                <div class="areaNumTip">0/80</div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="productContent">
+                    <div class="productContentItem">
+                        <div class="t-title">产品相册</div>
+                        <div class="product-album same-box">
+                            <div class="pLeft"><i>* </i>产品相册：</div>
+                            <div class="pRight boxHeight" style="margin-left:5px;">
+                                <div class="albumTip" style="line-height:40px;margin-bottom:20px;width:726px;">
+                                    <img style="vertical-align: middle;margin-bottom:3px;" id="" src="images/tips.png"/>&nbsp;&nbsp;请上传5-10张照片。好的照片能提高成功率哦~建议480*1200px，图片不超过3M.
+                                </div>
+                                <div class="unload-img-display">
+                                    <img id="firstUrl" src="images/header.jpg" style="width:120px;height:90px;"/>
+                                    <input type="hidden" id="hold-pro-img"/>
+                                    <input type="button" id="uploadButton"/>
+                                </div>
+                                <div id="father" style="margin-top:0;"></div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="handle">
+                        <div class="pLeft"></div>
+                        <div class="pRight">
+                            <a href="Production.html">返回</a>
+                            <a id="add-pro-save" style="background:#feb651;">提交审核</a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+            <span id="uploadButton1"></span>
+            <span id="uploadButton2"></span>
+            <div id="anchor"></div>
+            <span id="uploadButton4"></span>
+            <span id="albums"></span>
+            <span id="firstPic"></span>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+               <!-- <div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #SWFUpload_0{
+        margin-top:0;
+        position:absolute;
+        left:0;
+        top:0;
+        opacity:0;
+        filter:alpha(opacity=0);
+    }
+   #SWFUpload_3 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        width:100%;
+        height: 162px;
+        left: 0;
+        top: 0;
+       cursor:pointer;
+    }
+    #SWFUpload_1 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        width: 282px;
+        height: 162px;
+        left: 0;
+        top: 0;
+        display:none;
+    }
+    #SWFUpload_2 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        width: 282px;
+        height: 162px;
+        left: 0;
+        top: 0;
+        display:none;
+    }
+    #SWFUpload_4 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        width:50px;
+        height:30px;
+        left: 0;
+        bottom: 0;
+        display:none;
+    }
+    #SWFUpload_5,#SWFUpload_6{
+        display:none;
+    }
+</style>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader/swfupload.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader/handlers.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader.js"></script>
+<script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#startTime').datetimepicker({
+            lang:'ch',
+            timepicker:false,
+            /* yearStart:1950,     //设置最小年份
+             yearEnd:new Date().getYear(),*/
+            minDate:new Date().toString(),
+            //maxDate:new Date().toString(),//设置最大年份
+            onChangeDateTime:function(){
+                $(this).hide();
+                alert($(this).val())
+            }
+        });
+        checkUser(2);
+        /*var isGuider=userType();
+        if(!isGuider)
+        {
+            window.location='PCenter.html';
+        }*/
+        initArea();
+    });
+    $("select").change(function(){
+        var obj=this;
+        var val=$(this).val();
+        $(this).children("option").each(function(){
+            if(val==$(this).val())
+            {
+                $(obj).parent("div").find(".manBox_left").text($(this).text());
+            }
+        });
+    });
+</script>
+</body>
+</html>

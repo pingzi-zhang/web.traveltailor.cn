@@ -1,0 +1,275 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/datetime/jquery.datetimepicker.css" />
+    <script type="text/javascript" language="javascript" src="js/datetime/jquery.datetimepicker.js"></script>
+    <script type="text/javascript" language="javascript" src="js/MoneyFormat/accounting.min.js"></script>
+    <title>订单支付</title>
+</head>
+
+<body>
+<div id="pdf4" class="out_box" style="display:none;">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:600px;">
+            <div style="width:100%; height:40px;background-color:#f5f5f5;">
+                <div class="textTip">支付状态</div>
+                <a class="close_outbox" title="关闭窗口" style="background-color:transparent;color:#afafaf;margin:5px 20px;" onclick="$('#pdf4').hide()">×</a>
+            </div>
+            <div style="height:280px;background-color:#fff;border-top: 1px solid transparent;">
+                <div id="content" style="padding-left:10px; line-height:30px;">
+                    <div class="linkTxt" style="margin-top:30px;">请点击下面的链接进入付款页面:</div>
+                    <div  class="linkTxt" style="height:50px;">
+                        <a  href="Payment.html" target="_blank" class="pay" style="border:none;">
+                            <img src="images/wechatPay.jpg"/>
+                        </a>
+                    </div>
+                    <div class="linkTxt">完成付款后，请根据你的情况点击下面的按钮:</div>
+                    <div class="linkTxt">
+                        <a class="confirmBt">已完成支付</a>
+                        <a class="confirmBt">支付遇到问题</a>
+                        </div>
+                    <div class="linkTxt" style="color:#ff9500;">
+                        *返回重新选择支付方式
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="container">
+        <div id="header">
+            <div id="out_box">
+                <a href="index.html"><div id="logo"></div></a>
+                <div id="navigator">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="Guider.html">旅行管家</a></li>
+                        <li><a href="Booking.html">专属定制</a></li>
+                        <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div id="loginTip" style="padding:0;">
+                    <div class="loginRight" style="width:100px;">
+                        <div class="dropList"  id="droplist"><a  class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                    </div>
+                    <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                </div>
+                <div id="loginTip1">
+                    <a style="color:#ff9500;" href="Login.html">登录</a><a style="width:4px;margin-left:10px;">|</a><a style="color:#ff9500;" href="Register.html">注册</a>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="banner" style="background-color:#f5f5f5;border:1px solid transparent;">
+            <div class="middlebox" style="height:auto;margin-bottom:120px;margin-top:0;background-color:#f5f5f5;min-height:600px;">
+                <div class="infoLeft" style="float:none;width:100%;">
+                    <div class="contentBox userInfo" style="border:none;">
+                        <div class="infoTitle userTxt userTxtArea">
+                            <div style="width:1160px;margin:0 auto;">
+                                <div class="orderHeader" style="text-indent:0;">
+                                    <span style="color:#b2b2b2;">订单号：</span><span id="orderId"></span>
+                                </div>
+                                <div class="orderHeader" style="text-align:right;">
+                                    <span style="color:#b2b2b2;">下单时间</span> :<span id="ctime"></span>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                       <div class="orderDetail" id="orderDetail" style="display:none;">
+                           <div class="orderDetailHeader">
+                               <div class="headerItem">产品名称</div>
+                               <div class="headerItem">价格</div>
+                               <div class="headerItem">数量</div>
+                               <div class="headerItem" style="border:none;">金额</div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderConstents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                           <div class="orderContents orders">
+                               <div class="contentItem contentArea">
+                                   <span class="name">
+                                       </span>
+                               </div>
+                               <div class="contentItem">￥<span class="pprice"></span></div>
+                               <div class="contentItem"><span class="count"></span></div>
+                               <div class="contentItem orderPrice">￥<span class="total"></span></div>
+                               <div style="clear:both;"></div>
+                           </div>
+                       </div>
+                        <div class="orderContents" style="border:none;width:1160px;margin:20px auto 0;">
+                            <div class="OrderFloat">订单提交成功，请尽快付款！（该订单会为您保留20分钟，过后系统会关闭该订单）</div>
+                            <div class="OrderFloat" style="text-align:right;">已优惠<span class="orderArea">0.00</span>元，应付金额￥<span class="orderArea" id="actPay" style="font-size:28px;"></span>元</div>
+                            <div style="clear:both;"></div>
+                            <div class="clickDetail">
+                                <span>查看详情<i><img style="margin-left:5px;" id="stat" src="images/lookDetail_down.png"/></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentBox userInfo">
+                        <div class="infoTitle userTxt">选择支付</div>
+                        <div class="userTxtInfo areaInfo" style="width:1160px;margin-bottom:0;height:80px;">
+                            <div class="orderImg">
+                                <div class="icon" >
+                                    <img src="images/wechatIcon.jpg"/>
+                                </div>
+                                <div class="iconTip">
+                                    <span style="color:#666;font-weight:bold;font-size:16px;">微信支付</span>（微信支付，方便快捷，有卡就能付。）
+                                </div>
+                                <div class="goPay">
+                                    <a class="pay" href="Payment.html" target="_blank" id="pay">去支付</a>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="js/common.js"></script>
+    <script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+    <script>
+        $(".people").each(function () {
+            $(this).children(".peopleItem").last().css("margin", 0);
+        });
+        $("#navigator ul li:eq(3) a").css({"color":"#ff9500","font-weight":"bold"});
+        window.onload=function(){
+            checkUser(1);
+        }
+        var arrStat=0;
+        $(".clickDetail").click(function(){
+            if(arrStat==0)
+            {
+                $("#stat").attr("src","images/lookDetail.png");
+                arrStat=1;
+            }
+            else
+            {
+                $("#stat").attr("src","images/lookDetail_down.png");
+                arrStat=0;
+            }
+            $("#orderDetail").slideToggle();
+        });
+        orderInfo();
+    </script>
+</body>
+</html>

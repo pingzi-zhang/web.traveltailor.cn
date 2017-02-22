@@ -1,0 +1,449 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/datetime/jquery.datetimepicker.css" />
+    <script type="text/javascript" language="javascript" src="js/datetime/jquery.datetimepicker.js"></script>
+    <script type="text/javascript" language="javascript" src="js/MoneyFormat/accounting.min.js"></script>
+    <script type="text/javascript" language="JavaScript" src="js/geo.js"></script>
+    <title>提交订单</title>
+</head>
+<style>
+.sel_shot {
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    float: left;
+}
+</style>
+<body>
+<div id="pdf4" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">正在创建订单，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="pdf2" class="out_box" style="z-index:99999;background-color:#fff;">
+    <div class="out_box_infirst" style="background-color:transparent;">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                        <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+    <div id="container">
+        <div id="header">
+            <div id="out_box">
+                <a href="index.html"><div id="logo"></div></a>
+                <div id="navigator">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="Guider.html">旅行管家</a></li>
+                        <li><a href="Booking.html">专属定制</a></li>
+                        <li><a href="AboutUs.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div id="loginTip" style="padding:0;">
+                    <div class="loginRight" style="width:100px;">
+                        <div class="dropList"  id="droplist"><a  class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                    </div>
+                    <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                </div>
+                <div id="loginTip1">
+                    <a style="color:#ff9500;" href="Login.html">登录</a><a style="width:4px;margin-left:10px;">|</a><a style="color:#ff9500;" href="Register.html">注册</a>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="banner" style="background-color:#f5f5f5;border:1px solid transparent;">
+            <div class="middlebox" style="height:auto;margin-bottom:60px;margin-top:0;background-color:#f5f5f5">
+                <div class="topNav" style="padding:40px 0 20px;height:auto;line-height:0;"><a href="Index.html">首页</a>&nbsp;>&nbsp;<a href="guiderDetail.html">旅行管家详情</a><!--&nbsp;>&nbsp;<a href="Index.html">产品详情</a>-->&nbsp;>&nbsp;订单提交</div>
+                <div class="infoLeft">
+                    <div class="contentBox">
+                        <div class="infoTitle">
+                            <div class="titleItem" style="width:420px;">名称</div>
+                            <div class="titleItem">价格</div>
+                            <div class="titleItem">数量</div>
+                            <div class="titleItem">小计</div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                            <!--<div class="hotelTip">入离时间&nbsp;<input type="text" class="times" value="2016/08/10"/>&nbsp;(周四)&nbsp;到&nbsp;<input class="times" value="2016/08/10"/>（周六）&nbsp;&nbsp;共1晚 &nbsp;<a class="modifyTime">修改日期</a></div>-->
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                            <div class="hotelTip">入离时间&nbsp;<input type="text" class="times" value="2016/08/10"/>&nbsp;(周四)&nbsp;到&nbsp;<input class="times" value="2016/08/10"/>（周六）&nbsp;&nbsp;共1晚 &nbsp;<a class="modifyTime">修改日期</a></div>
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div class="infoContnet">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                            <!--<div class="hotelTip">入离时间&nbsp;<input type="text" class="times" value="2016/08/10"/>&nbsp;(周四)&nbsp;到&nbsp;<input class="times" value="2016/08/10"/>（周六）&nbsp;&nbsp;共1晚 &nbsp;<a class="modifyTime">修改日期</a></div>-->
+                        </div>
+                        <div class="infoContnet" style="border:none;">
+                            <div class="titleItem" style="width:420px;">
+                                <div class="infoItemContent">
+                                    <div class="leftImg">
+                                        <img src="images/guider_1.jpg"/>
+                                    </div>
+                                    <div class="rightContent">
+                                        <div>
+                                            都江堰爱得森酒店（五星级）1晚
+                                            +双人青城山景区vip免排队门票
+                                            +青城山vip茶歇
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titleItem textValign">￥<span class="singlePrice">90</span></div>
+                            <div class="titleItem textValign"><span class="quantity">2</span></div>
+                            <div class="titleItem textValign fontStyle">￥<span class="totalPrice">180</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="contentBox userInfo">
+                        <div class="infoTitle userTxt">填写信息</div>
+                        <div class="userTxtInfo">
+                            <div style="margin-bottom:10px;">
+                                <div class="textInfo">联系人：</div>
+                                <div class="inputInfo">
+                                    <input type="text" name="uName" id="uName" placeholder="请填写您的姓名"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div style="margin-bottom:10px;">
+                                <div class="textInfo">手机号码：</div>
+                                <div class="inputInfo">
+                                    <input type="text" name="phone" id="phone" placeholder="请填写您的手机号码"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div style="margin-bottom:10px;" class="outing">
+                                <div class="textInfo">出游日期：</div>
+                                <div class="inputInfo">
+                                    <input type="text" name="pdate" id="playdate" placeholder="请填写您的出游日期"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div style="margin-bottom:10px;" class="address">
+                                <div class="textInfo">收货地址：</div>
+                                <div class="inputInfo">
+                                    <!-- <input type="text" id="detailaddress" placeholder="请填写您的收货地址"/> -->
+                                    <input id="txt_address" type="hidden" class="txt_shot" />
+                                    <div class="divtwo">
+                                        <select class="sel_shot" name="province" id="s1">
+                                            <option></option>
+                                        </select>&nbsp;
+                                        <select class="sel_shot" name="city" id="s2">
+                                            <option></option>
+                                        </select>&nbsp;
+                                        <select class="sel_shot" name="town" id="s3" onchange="selRegion()">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div style="margin-bottom:10px;" class="addressdetail">
+                                <div class="textInfo">收货地址：</div>
+                                <div class="inputInfo">
+                                    <input type="text" id="detailaddress1" placeholder="请填写详细收货地址"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div  style="display:none;">
+                                <div class="textInfo">身份证号：</div>
+                                <div class="inputInfo">
+                                    <input type="text" name="phone" id="ecode" placeholder="请填写您的手机号码"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentBox userInfo">
+                        <div class="infoTitle userTxt">退订说明</div>
+                        <div class="userTxtInfo areaInfo">
+                            - 以上价格仅适用于8/1-8/31期间周日-周四的入住和退房日期。<br/>
+                            - 请在预定时购买您所需的套餐份数，我们会在收到订单后及时电话跟您确认订单详情以及您的特殊需求以便能及时准确为您安排。
+                        </div>
+                    </div>
+                    <div class="contentBox userInfo">
+                        <div class="infoTitle userTxt">温馨提示</div>
+                        <div class="userTxtInfo areaInfo">
+                            - 以上价格仅适用于8/1-8/31期间周日-周四的入住和退房日期。
+                        </div>
+                    </div>
+                </div>
+                <div class="infoRight">
+                    <div class="account">
+                        <div class="accountHeader">
+                            <div class="accountInfo">应付金额</div>
+                            <div class="accountInfo" style="text-align:right;font-size:24px;color:#ff9500;">￥<span id="allMoney"></span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <div class="accountHeader">
+                            <div class="accountInfo acckountArea">总金额：</div>
+                            <div class="accountInfo acckountArea" style="text-align:right;font-size:16px;color:#ff9500;">￥<span id="actMoney"></span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="accountHeader">
+                            <div class="accountInfo acckountArea">优惠：</div>
+                            <div class="accountInfo acckountArea" style="text-align:right;font-size:16px;color:#ff9500;">￥<span id="proir">0.00</span></div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </div>
+                    <div class="accountHeader">
+                        <input type="button" class="submitButton" id="submitButton" value="提交订单"/>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="js/common.js"></script>
+    <script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+    <script>
+        $(".people").each(function () {
+            $(this).children(".peopleItem").last().css("margin", 0);
+        });
+        if($(".outing").is(":visible")){
+            function show(){
+               var mydate = new Date();
+               var str = "" + mydate.getFullYear() + "-";
+               str += (mydate.getMonth()+1) + "-";
+               str += mydate.getDate() + "-";
+               return str;
+            }
+            $("#playdate").change(function(){
+                var usernum=$(this).val();
+                var start=new Date(usernum.replace("-", "/").replace("-", "/"));  
+                var end=new Date(show().replace("-", "/").replace("-", "/"));
+                if(end>start){ 
+                    $("#error").text("出游日期不正确");
+                    $("#pdf2").show();
+                    var t=setTimeout(function(){$("#pdf2").hide();clearTimeout(t);},1000);
+                    $(this).focus();
+                    //$(this).val(show());
+                    return false;  
+                }
+            });
+        }
+        
+        $("#playdate").datetimepicker({lang:'ch',timepicker:false});
+        $(document).ready(function(){
+            checkUser(1);
+            initailProduct();
+        });
+
+        //选择行政区域
+            var address = "";
+            function promptinfo() {
+            }
+
+            function selRegion() {
+                address = "";
+                if ($("#s1").val() != "省份") {
+                    address = $("#s1").val();
+                }
+                if ($("#s2").val() != "地级市") {
+                    address = $("#s2").val();
+                }
+                if ($("#s3").val() != "市、县级市、县") {
+                    address = $("#s2").val() + $("#s3").val();
+                }
+                if (address != "") {
+                    $("#txt_address").attr("value",address);
+                }
+            }
+
+            //当所有资源加载完成后执行，包括外部js，css，图片等
+            $(function() {
+                setup();
+                preselect('广东省');
+                promptinfo();
+            });
+
+    </script>
+</body>
+</html>

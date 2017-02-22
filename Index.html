@@ -1,0 +1,379 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>TravelTailor旅行网，专属于你的旅行管家</title>
+</head>
+<body onresize="setSize()">
+    <div class="wechat" style="position:fixed;right:0;top:20%;width:215px;height:220px;z-index:1000;display:none;">
+        <div class="wechat_float">
+            <div class="wleft wleft1" lang="phonePannel"><img src="images/phone.png" /></div>
+            <div class="wleft wleft1" lang="dim2"><img src="images/wechat.png" /></div>
+            <div class="wleft" style="display:none;" lang="top"><img src="images/gotop.png" /></div>
+        </div>
+        <div class="wechat_float" style="width:150px;">
+            <div style="height:50px;">
+                <div class="phonePannel info">
+                    028-8729-4247
+                </div>
+            </div>
+            <div class="dim2 info">
+                <img src="images/dim2.png" />
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div id="header">
+            <div id="out_box">
+                <a href="index.html"><div id="logo"></div></a>
+                <div id="navigator">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="Guider.html">旅行管家</a></li>
+                        <li><a href="Booking.html">专属定制</a></li>
+                        <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div id="loginTip" style="padding:0;display:none;">
+                    <div class="loginRight" style="width:100px;">
+                        <div class="dropList"  id="droplist"><a class="uName" style="text-align:left;">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                    </div>
+                    <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                </div>
+                <div id="loginTip1">
+                    <a href="Login.html">登录</a><a  style="width:4px;margin-left:10px;">|</a><a href="Register.html">注册</a>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="banner" id="imgBox">
+        <ul id="banner">
+            <li style="z-index:3"><img src="images/banner_0.jpg" /></li>
+            <li style="z-index:2"><img src="images/banner_1.jpg" /></li>
+            <li style="z-index:1"><img src="images/banner_2.jpg" /></li>
+        </ul>
+        <div class="switchBtBox" style="z-index:10">
+            <div class="switchBtInbox">
+                <div class="switchBt" style=" background-color:#fff;"></div>
+                <div class="switchBt"></div>
+                <div class="switchBt"></div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="switchBtBox" style="z-index:10;bottom:65px;height:auto;">
+            <div class="switchBtInbox" style="width:900px;">
+               <div>为您提供当地最富人情味儿的地道旅行</div>
+                <div style="font-size:54px;font-weight:bold;">陌生的城市，有一个懂你的人在等你</div>
+            </div>
+        </div>
+    </div>
+    <div class="banner" style="background-image:url(images/bgbar.jpg);height:700px;">
+        <div class="guider"></div>
+        <div class="moreDesciption">
+            <a class="Arrow leftArrow">
+                <img src="images/leftScroll.png"/>
+            </a>
+            <div id="imgContainer">
+                <ul style="width:100%;">
+                </ul>
+            </div>
+            <a class="Arrow rightArrow" name="1">
+                <img src="images/rightScroll.png"/>
+            </a>
+        </div>
+    </div>
+    <div class="banner" style="background-image:url(images/hotbg.jpg)">
+        <div class="hottextBox">
+            <div class="hottext">
+                <img src="images/hotplace.png" />
+            </div>
+        </div>
+        <div class="hotplace">
+            <div class="cotainerBox">
+                <div class="topBox"></div>
+                <div class="bottomText" style="width:340px;">
+                    <div class="arrow"></div>
+                    <div class="contentBox">
+                        <div class="title">都江堰</div>
+                        <div class="content">都江堰风景区坐落在成都平原西部的岷江上，位于四川省 都江堰市城西。都江堰不仅是举世闻名的中国古代水利工 程，也是著名的风景名胜</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cotainerBox" style="width:260px;height:278px;background-color:#40b87c;margin-left:5px;">
+                <div class="contentBox" style="width:240px;padding-top:0;margin:0 auto;">
+                    <div class="bottomText" style="background-color:transparent;">
+                        <div class="arrow" style="border-color: transparent  transparent transparent #40b87c;top:40px;right:-48px;left:auto;"></div>
+                        <div class="title" style="text-align:right;padding-right:12px;">南桥</div>
+                        <div class="content">
+                            都江堰南桥位于都江堰宝瓶口下侧的岷江内
+                            江上，是南街与复兴街之间的一座雄伟壮丽
+                            的廊式古桥。<br />
+                            桥身为木梁钢筋水泥柱，混凝土桥面，桥头
+                            增建了桥亭、石阶、花圃，桥身雕梁画栋桥
+                            廊增饰诗画匾联。不仅保持了古桥风貌而且
+                            建筑艺术十分考究，是都江堰市一处旅游胜
+                            景！
+                        </div>
+                    </div>
+                </div>
+                <div class="topBox" style="height:150px;width:260px;background-image:url(images/hk.jpg)"></div>
+            </div>
+            <div class="cotainerBox" style="width:280px;height:100%; background-image:url(images/nqpic_0.jpg);margin-left:5px;">
+
+            </div>
+            <div class="cotainerBox" style="width:300px;height:100%;margin-left:5px;">
+                <div class="contentBox" style="background-color:#98b3a7;height:180px;padding-top:0;margin:0px auto;">
+                    <div class="bottomText" style="height:180px;margin:0 auto;width:280px;">
+                        <div class="arrow" style="border-color:#98b3a7  transparent transparent transparent;top:auto;bottom:-39px;left:207px;"></div>
+                        <div class="title" style="padding-top:10px;">青城山</div>
+                        <div class="content">
+                            青城山位于四川省都江堰市西南，是中国道教发源
+                            地之一，属道教名山，国家5A级景区。全山林木
+                            青翠，四季常青，诸峰环峙，状若城廓，故名青
+                            城山。
+                        </div>
+                    </div>
+                </div>
+                <div class="topBox" style="height:250px;width:300px;background-image:url(images/qcs_03.jpg);background-size:cover;margin-top:5px;"></div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="hottextBox">
+            <div class="hottext">
+                <img src="images/localpeople.png" />
+            </div>
+        </div>
+        <div class="hottextBox" style="margin-top:80px;">
+            <div class="localPeople">
+                <div class="picbox">
+                    <img src="images/zhongwei_1.png" />
+                </div>
+                <div class="introduce">
+                    <div class="pname"><a  href="GuiderDtail.html" target="_blank">钟伟</a></div>
+                    <div class="pintro">
+                        大家好!欢迎大家来到都江堰景区游览。我将带领大家一一领略都江堰水利工程的伟大与壮丽，让我们一起来见识一下古人的伟大和聪明才智。
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div class="localPeople">
+                <div class="picbox">
+                    <img src="images/gongjun.png" />
+                </div>
+                <div class="introduce">
+                    <div class="pname"><a href="GuiderDtail.html" target="_blank">龚俊</a></div>
+                    <div class="pintro">
+                        我叫龚俊，是一个性格率直，带着一腔热情来到景区从事讲解工作。来 到都江堰的游客，我将用我的热情带着你们去了解都江堰两千多年的 水利文化，去感受李冰治水的艰辛历程。
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div class="localPeople">
+                <div class="picbox">
+                    <img src="images/3.png" />
+                </div>
+                <div class="introduce">
+                    <div class="pname"><a  href="GuiderDtail.html" target="_blank">高庭庭</a></div>
+                    <div class="pintro">
+                        大家好，我是都江堰旅行管家，大学 毕业，从业3年，喜爱历史文化，也通琴棋书画。愿 以我的专业知识引领大家一同去领略世界文化遗产秀美的自然风光和 人文景观。
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div class="localPeople">
+                <div class="picbox">
+                    <img src="images/luomi_1.png" />
+                </div>
+                <div class="introduce">
+                    <div class="pname"><a  href="GuiderDtail.html" target="_blank">罗蜜</a></div>
+                    <div class="pintro">
+                        嗨！远道而来的客人，我既不独特也不漂亮，“上知人文地理，下知鸡毛蒜皮”初次相识，玩笑当先，愿你笑口常开！我是一名毕业于大学本科旅游管理的专业旅行管家，具有丰富的专业知识和综合技能。
+</div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="banner" style="height:auto;padding:65px 0 40px;background-color:#f9f9f9;">
+        <div class="happyTime" style="width:260px;height:100px;margin:0 auto;background-image: url(images/happyTime.png)"></div>
+    </div>
+    <div class="banner" id="bannerBox" style="height:auto;padding-bottom:35px;background-color:#f9f9f9;">
+        <div class="imagesBox">
+            <table id="imgs" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="25%">
+                        <div class="rotatebox">
+                            <div class="layer">
+
+                            </div>
+                            <div class="backBox">
+                                <div class="backIntroduce">
+                                    <div class="backIntroduce_title">六善酒店</div>
+                                    <div class="backIntroduce_content">
+                                        <div>在青城山这个灵性、清新的世外桃源里</div>
+                                        <div>天人合一的尊贵</div>
+                                        <div>中国大陆首家六善</div>
+                                        <div>待您尽享顶级的奢华入住体验。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="frontBox" src="images/yijiangnan.png" />
+                        </div>
+                    </td>
+                    <td width="25%">
+                        <div class="rotatebox totateAreal">
+                            <div class="layer" style="z-index:9;">
+
+                            </div>
+                            <div class="backBox" style="z-index:10">
+                                <div class="backIntroduce">
+                                    <div class="backIntroduce_title">门票（成人）</div>
+                                    <div class="backIntroduce_content">
+                                        <div>漫步于千年古堰，观赏“天府之源”</div>
+                                        <div>在饱含负离子的清新空气中深深呼吸</div>
+                                        <div>远离城市的喧嚣与闷热的尾气</div>
+                                        <div>进行从内至外的洗礼。</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="frontBox" src="images/gateTicket.png" />
+                        </div>
+                    </td>
+                    <td width="25%">
+                        <div class="rotatebox">
+                            <div class="layer">
+
+                            </div>
+                            <div class="backBox">
+                                <div class="backIntroduce">
+                                    <div class="backIntroduce_title">定制</div>
+                                    <div class="backIntroduce_content">
+                                        <div>拒绝跟团的平庸、奔波和不由自己</div>
+                                        <div>放下地图、攻略和劳神费力的自由行</div>
+                                        <div>相信我们</div>
+                                        <div>会给您更多自由和美好的旅行感受</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="frontBox" src="images/book_2.png" />
+                        </div>
+                    </td>
+                    <td width="25%" style="padding-right:0;">
+                        <div class="rotatebox">
+                            <div class="layer">
+
+                            </div>
+                            <div class="backBox">
+                                <div class="backIntroduce">
+                                    <div class="backIntroduce_title">玉垒山居</div>
+                                    <div class="backIntroduce_content">
+                                        <div>清晨，弥漫的云雾与叩门的山中鸟雀</div>
+                                        <div>使人在愉悦中苏醒</div>
+                                        <div>开始慢生活的一天</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="frontBox" src="images/local_4.jpg" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="banner" style="height:380px;">
+        <div class="iconBox">
+            <div class="icon">
+                <div class="iconContent">
+                    <div><img src="images/masonry.png" /></div>
+                    <div class="bigFont">品质享受，品牌保障</div>
+                </div>
+            </div>
+            <div class="icon">
+                <div class="iconContent">
+                    <div><img src="images/pen.png" /></div>
+                    <div class="bigFont">独家产品，非凡体验</div>
+                </div>
+            </div>
+            <div class="icon">
+                <div class="iconContent">
+                    <div><img src="images/heart.png" /></div>
+                    <div class="bigFont">7X24小时，1对1专属管家</div>
+                </div>
+            </div>
+            <div class="icon">
+                <div class="iconContent">
+                    <div><img src="images/umbrella.png" /></div>
+                    <div class="bigFont">出行无忧，零时差客户服务承诺</div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="banner" style="height:200px;background-color:#404040;">
+        <div class="footer">
+            <div class="leftInfo">
+                <div class="siteInfo">
+                    <div class="siteInfoItem" style="text-align: left;width: 77px;"><a target="_blank" href="JoinUs.html">诚聘英才</a></div>
+                    <!--<div class="siteInfoItem"><a href="">关于我们</a></div>
+                    <div class="siteInfoItem"><a href="">诚聘英才</a></div>-->
+                    <div class="siteInfoItem"><a target="_blank" href="UsualRequestion.html">常见问题</a></div>
+                    <div class="siteInfoItem"><a target="_blank" href="ContactUs.html">商务合作</a></div>
+                    <div class="siteInfoItem"  style="border:none;"><a target="_blank" href="ContactUs.html">联系我们</a></div>
+                    <!--
+                    <div class="siteInfoItem"><a href="">网站地图</a></div>
+                    <div class="siteInfoItem" style="border:none;"><a href="">新浪微博</a></div>-->
+                    <div style="clear:both;"></div>
+                </div>
+                <!--<div class="link">友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a></div>-->
+                <div class="link">Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2</div>
+                <div class="link">Traveltailor  致慧科技（中国）有限公司&nbsp;&nbsp; Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼</div>
+            </div>
+            <div class="rightInfo">
+                <div class="wechatCode">
+
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+        $("#navigator ul li:eq(0) a").css({"color":"#ff9500","font-weight":"bold"});
+        $(document).ready(function(){
+            setSize();
+            checkUser(1);
+            getTailors();
+            //兼容IE8-9
+            /*
+            var url = 'http://webapi.nihaott.com/Gate/LoginSubmit?strLoginCode=18280483002&strPassword=a123456';
+            var xdr = new XDomainRequest();
+            xdr.onload = function() {
+                alert(xdr.responseText);
+            };
+            xdr.onerror = function() {
+                alert("error");
+            };
+
+            xdr.timeout = 3000;
+            xdr.ontimeout = function() {
+                alert("timeout");
+            };
+
+            xdr.open("post", url);
+            xdr.send();*/
+        });
+    </script>
+</body>
+</html>

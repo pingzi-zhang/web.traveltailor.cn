@@ -1,0 +1,209 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <title>专属定制</title>
+</head>
+<body>
+<div id="pdf2" class="out_box">
+    <div class="out_box_infirst" style="background-color:transparent;">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                        <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+                            没有找到你的定制信息！
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+    <div id="container">
+        <div>
+            <div id="header">
+                <div id="out_box">
+                    <a href="index.html"><div id="logo"></div></a>
+                    <div id="navigator">
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="Guider.html">旅行管家</a></li>
+                            <li><a href="Booking.html">专属定制</a></li>
+                            <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div id="loginTip" style="padding:0;">
+                        <div class="loginRight" style="width:100px;">
+                            <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:2px;">|</a><a href="###">退出</a></div>
+                        </div>
+                        <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                    </div>
+                    <div id="loginTip1">
+                        <a style="color:#ff9500;" href="Login.html">登录&nbsp;</a><a style="color:#ff9500;" href="Register.html">|&nbsp;注册</a>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="width:100%;min-width:1200px;">
+                <form>
+                    <div style="background-color:#f5f5f5;height:auto;">
+                        <div style="height:auto;">
+                            <div class="loginBox" style="width:100%;border:1px solid transparent">
+                                <form>
+                                    <div class="b_container">
+                                        <div class="b_contentBox">
+                                            <div clas="b_content">
+                                                <div class="b_icontop">
+                                                    <img src="images/book.png" /><span>旅行计划</span>
+                                                </div>
+                                                <div class="inputs">
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>目的地：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="dest"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>旅游主题：</div>
+                                                        <div class="themeItem_right" style="height:auto; width: 710px;">
+                                                            <div id="theme"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>酒店星级：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="star"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出发城市：</div>
+                                                        <div class="themeItem_right"  style="position:relative;width:350px;">
+                                                            <div id="getcity_name"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*</span>出发日期：</div>
+                                                        <div class="themeItem_right" style="position:relative;width:350px;">
+                                                        <div id="startTime"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出发天数：</div>
+                                                        <div class="themeItem_right">
+                                                            <div  id="day">
+                                                            </div>
+                                                            </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出行人数：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="mans"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>单人预算：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="yu"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left">其他需求：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="otherDemand" style="border:none;"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div clas="b_content">
+                                                <div class="b_icontop"><img src="images/evolope.png" /><span>个人信息</span></div>
+                                                <div class="inputs">
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>联系人：</div>
+                                                        <div class="themeItem_right">
+                                                            <div id="contactMan"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>联系电话：</div>
+                                                        <div class="themeItem_right" style="height:auto;">
+                                                            <div id="phone"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div>
+            <div class="bottom">
+                <div class="footer">
+                    <div class="footerContent">
+                        <div class="text" style="height:45px;margin-top:30px;">
+                            <ul>
+                                <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                                <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                                <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                                <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                                <!--<li><a href="">关于我们</a></li>
+                                <li><a target="_blank" href="">商务合作</a></li>
+                                <li><a href="">专属定制</a></li>
+                                <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                            </ul>
+                        </div>
+                        <!--<div class="text">
+                            友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                        </div>-->
+                        <div class="text">
+                            Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                        </div>
+                        <div class="text">
+                            Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                        </div>
+                    </div>
+                    <div class="footerContent" style="width:30%;">
+                        <div class="dem2">
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $("#navigator ul li:eq(2) a").css({"color":"#ff9500","font-weight":"bold"});
+    window.onload=function(){
+        checkUser(1);
+    }
+</script>
+</body>
+</html>

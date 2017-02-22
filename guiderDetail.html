@@ -1,0 +1,588 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/pcenter.css" />
+    <script type="text/javascript" language="javascript" src="js/MoneyFormat/accounting.min.js"></script>
+    <title>旅行管家</title>
+    <style>
+        .title-box-sub{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container" style="overflow:visible;">
+    <div id="pdf2" class="out_box">
+        <div class="out_box_infirst" style="background-color:transparent;">
+        </div>
+        <div class="out_box_insecond">
+            <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+                <div style="width:300px; height:auto;float:left;">
+                    <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                        <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                            <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+<div id="header">
+    <div id="out_box">
+        <a href="index.html"><div id="logo"></div></a>
+        <div id="navigator">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Guider.html">旅行管家</a></li>
+                <li><a href="Booking.html">专属定制</a></li>
+                <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+            </ul>
+        </div>
+        <div id="loginTip" style="padding:0;">
+            <div class="loginRight" style="width:100px;">
+                <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+            </div>
+            <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+        </div>
+        <div id="loginTip1">
+            <a style="color:#ff9500;" href="Login.html">登录</a><a  style="width:4px;margin-left:10px;">|</a><a style="color:#ff9500;" href="Register.html">注册</a>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="main">
+   <!--<div style="opacity: 0;"><a>旅行管家</a>><a >旅行管家详情</a>&lt;!&ndash;<a>产品详情</a>&ndash;&gt;</div>-->
+   <div class="nav" style="color: #666666;padding-top:25px;"><a href="Index.html">首页</a>><a href="guiderDetail.html">旅行管家详情</a><!--<a href="#">产品详情</a>--></div>
+   <div class="p-intro" style="margin-top: 10px;">
+       <div class="left">
+           <div style="float:left;"><img id="big" src=""/></div>
+           <div class="p-intro-s" style="float: right;position:relative;height:500px;width:177px;overflow:hidden;">
+               <div id="arrowUp" class="Arrowactive" style="position:absolute;z-index:100;"><img src="images/arrow-up.png"/></div>
+               <div id="imgCon">
+                   <div class="thumb"></div>
+                   <div class="thumb"></div>
+                   <div class="thumb"></div>
+                   <div class="thumb"></div>
+                   <div class="thumb"></div>
+               </div>
+               <div id="arrowDown" class="Arrowactive" style="left:0;bottom:0;top:inherit;position:absolute;margin:0;z-index:100;"><img src="images/arrow-down.png"/></div>
+           </div>
+       </div>
+       <div class="right">
+           <div class="base-info">
+               <img src="images/p-photo.png" id="tailor-photo"/>
+               <p style="font-size: 16px;color: #ffaa33;font-weight: bold;" id="tailor-name"></p>
+               <p id="personDes">
+               </p>
+           </div>
+           <!--<div class="mark">
+               &lt;!&ndash;<p style="color: #8c8c8c;font-size: 14px;margin-bottom: -20px;margin-left: 10px;">标签</p>
+               <p style="width:280px;" id="tailor-mark"></p>&ndash;&gt;
+           </div>-->
+           <div class="p-desc" style="width:90%;margin:0 auto;text-indent:2em;">
+               <span id="tailor-Inaword"></span>
+           </div>
+       </div>
+       <div style="clear:both;"></div>
+   </div>
+   <div class="p-pro-detail" style="margin-top: 20px;">
+       <div class="left">
+           <div class="title">
+               <a class="active">景区门票</a>
+               <a>民宿酒店</a>
+               <a>组合产品</a>
+               <a>签证</a>
+           </div>
+           <div class="title-box">
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" value="+"/>
+                           <input type="number" class="result" value="0">
+                           <input type="button" class="minus" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+               <div class="title-box-sub">
+                   <span class="pic"><img src="images/p-pro.jpg" class="tailorFirstUrl" style="width: 300px;height: 180px;"/></span>
+                   <span class="explain">
+                       <p style="font-size: 16px;color: #ffaa33;" class="tailor-pro-name">vip通道+食解都江堰</p>
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/position.png"/></i></b><s>都江堰景区 AAAAA 景区</s></p>
+                       <!-- <p style="color: #666666;font-size: 14px;"><b><i><img src="images/totalSalesValume.png"/></i></b><s class="ammounts" style="vertical-align: bottom;">19115</s>人购买</p> -->
+                       <p style="color: #666666;font-size: 14px;"><b><i><img src="images/flag.png"/></i></b><s>管家推荐</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;" class="tailortuijian"></p>
+                       <!-- <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 组合优惠购买更划算，门票仅售￥85/张。</s></p>
+                       <p style="color:#8c8c8c;font-size: 14px;"><b></b><s><i><img src="images/star10.jpg"/></i> 特赠一份价值￥28的VIP接待室茶歇。</s></p> -->
+                   </span>
+                   <span class="price">
+                       <p style="color:#ffaa33;font-size: 24px;"><s>￥</s><b class="pro-price">120.00</b></p>
+                       <p class="calc">
+                           <input type="button" class="plus" name="pro1" value="+"/>
+                           <input type="number" class="result" name="pro1" value="0">
+                           <input type="button" class="minus" name="pro1" value="-"/>
+                           <a class="hiddenInfo">images/p-pro.jpg|都江堰爱得森酒店（五星级）1晚 +双人青城山景区vip免排队门票 +青城山vip茶歇|120</a>
+                       </p>
+                   </span>
+               </div>
+           </div>
+       </div>
+       <div class="right" id="wrap-div">
+           <div class="r-title">
+               <span>商品清单</span>
+           </div>
+           <div class="pro-box">
+           </div>
+           <div>
+               <div class="go-pay-box">
+                   <div style="color: #737373;font-size: 14px;float: left;margin-top: 5px;">合计：</div>
+                   <div style="color: #ffaa33;font-size: 24px;float:right;">￥<b id="pro-list-sum"></b></div>
+                   <button id="go-pay">去下单</button>
+               </div>
+           </div>
+       </div>
+       <div style="clear:both;"></div>
+   </div>
+</div>
+</div>
+
+<div class="bottom">
+    <div class="footer">
+        <div class="footerContent">
+            <div class="text" style="height:45px;margin-top:30px;">
+                <ul>
+                    <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                    <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                    <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                    <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                    <!--<li><a href="">关于我们</a></li>
+                    <li><a href="">专属定制</a></li><li><a target="_blank" href="">商务合作</a></li>
+                    <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                </ul>
+            </div>
+            <!--<div class="text">
+                友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+            </div>-->
+            <div class="text">
+                Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+            </div>
+            <div class="text">
+                Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+            </div>
+        </div>
+        <div class="footerContent" style="width:30%;">
+            <div class="dem2">
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $(".people").each(function () {
+        $(this).children(".peopleItem").last().css("margin", 0);
+    });
+    var topOffset=0;
+    var leftOffset=0;
+    $(document).ready(function(){
+        $("#wrap-div").show();
+        topOffset=$("#wrap-div").offset().top;
+        leftOffset=$("#wrap-div").offset().left;
+        $("#wrap-div").hide();
+        checkUser(1);
+        var imgLen=$(".thumb").length;
+        imgLength=imgLen;
+        GetTailorSellList();
+        managerInfo();
+    });
+    $(window).resize(function(){
+        var top=$(window).scrollTop();
+        $("#wrap-div").show();
+        leftOffset=$("#wrap-div").offset().left;
+        resetPos(top);
+    });
+</script>
+</body>
+</html>

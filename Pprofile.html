@@ -1,0 +1,510 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/common-a.css" />
+    <link rel="stylesheet" type="text/css" href="css/pcenter.css" />
+    <script type="text/javascript" language="javascript" src="js/provinceandcity_all.js"></script>
+
+    <link rel="stylesheet" href="js/kindeditor-4.1.10/themes/default/default.css" />
+    <script charset="utf-8" src="js/kindeditor-4.1.10/kindeditor.js"></script>
+    <script charset="utf-8" src="js/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="js/editor.js"></script>
+
+    <title>个人资料</title>
+</head>
+
+<body>
+<!--<div id="modifyBt" style="margin:0;">
+    <div id="mBox" style="margin:0;">
+        <div id="leftBt" style="margin:0;">修改</div>
+        <div id="rightBt" style="margin:0;">删除</div>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="arrowBox" style="margin:0;">
+        <div id="bottomArrow" style="margin:0;"></div>
+    </div>
+</div>-->
+<div id="pdf4" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">正在上传，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="container">
+<div id="header" style="border-bottom:1px solid #e0e0e0;">
+    <div id="out_box">
+        <a href="Index.html"><div id="logo"></div></a>
+        <div id="navigator">
+            <ul>
+                <li><a href="Index.html">首页</a></li>
+                <li><a href="Guider.html">旅行管家</a></li>
+                <li><a href="Booking.html">专属定制</a></li>
+                <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+            </ul>
+        </div>
+        <div id="loginTip" style="padding:0;">
+            <div class="loginRight" style="width:100px;">
+                <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+            </div>
+            <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div class="p_middleBox">
+    <div class="p_middleBoxContainer">
+        <div class="p_leftMeu">
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                        <div class="pHead_rightText">我是旅行管家</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li><a name="Production.html" data-required="1">我的产品</a></li>
+                        <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                        <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                        <div class="pHead_rightText">我是游客</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                        <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                        <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                        <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                        <div class="pHead_rightText">个人信息</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="PCenter.html" data-required="0">个人资料</a></li>
+                        <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                        <li><a name="Message.html" data-required="0">我的消息</a></li>
+                        <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="p_rightBox" style="height: auto;">
+            <div class="p_header">个人资料</div>
+            <div class="local-person-profile">
+                <div id="base-info">
+                    <p>基本信息</p>
+                    <ul>
+                        <li class="nav-dotted"></li><u id="base-info-edit"></u>
+                        <li><span class="s-l"><i>* </i><s>头像：</s></span><b><img src="" class="l-header-photo" style="margin-bottom: -60px;width:80px;height: 80px;"/></b></li>
+                        <li style="margin-top:70px;"><span class="s-l"><i>* </i><s>姓名：</s></span><b id="l-name"></b></li>
+                        <li><span class="s-l"><i>* </i><s>性别：</s></span><b id="l-sex"></b></li>
+                        <li><span><i>* </i><s>手机号码：</s></span><b id="l-mobile"></b></li>
+                        <li><span><i>* </i><s>所在地区：</s></span><b id="l-addr"></b></li>
+                        <input type="hidden" id="hold-addr-prov" value=""/>
+                        <input type="hidden" id="hold-addr-city" value=""/>
+                        <input type="hidden" id="hold-addr-town" value=""/>
+                    </ul>
+                </div>
+            </div>
+            <div id="toBeLocalStep">
+                <div class="base-info-edit  step-content"  style="width:900px;display: none;margin-left: 45px;margin-top: -5px;">
+                    <div>
+                        <span class="p-profile" style="font-size: 15px;">基本信息</span>
+                        <span class="p-profile-x"></span>
+                        <span class="p-profile-x-edit"><img src="images/edit.jpg"/></span>
+                    </div>
+                    <div class="header-photo clear">
+                        <div class="leftTxt"><span>头像：</span></div>
+                        <div class="h-p-right l-right">
+                            <img src="images/header-photo.jpg" class="l-header-photo" style="position: absolute;width:80px;height: 80px;"/>
+                            <input type="hidden" value="" id="hold-upload-img-url"/>
+                            <span style="background: rgba(0,0,0,.5);width: 80px;height: 80px;display: inline-block;text-align: center;line-height: 80px;border-radius: 100px;color: #fff;font-size: 14px;position: absolute;">
+                                修改头像
+                                <div id="uploadButton"></div>
+                                <!--<input type="file" style="margin-left: -75px;opacity:0; position: absolute;width: 90px;height: 80px;cursor: pointer;"/>-->
+                            </span>
+                        </div>
+                    </div>
+                    <div class="name clear">
+                        <div class="leftTxt"><i>* </i><span>姓名：</span></div>
+                        <div class="name-right l-right"><input type="text" name="name" placeholder="请输入您的姓名"/></div>
+                    </div>
+                    <div class="sex clear">
+                        <div class="leftTxt"><i>* </i><span>性别：</span></div>
+                        <div class="sex-right l-right"><input type="radio" name="sex1" value="0"/>男<input type="radio" name="sex1" value="1"/>女</div>
+                    </div>
+                    <!--<div class="p-number clear">
+                        <div class="p-number-left"><i>* </i><span>手机号码：</span></div>
+                        <div class="p-number-right"><input type="text" name="mobile"/></div>
+                    </div>-->
+                    <div class="area clear" style="margin-bottom: 180px;">
+                        <div class="leftTxt"><i>* </i><span>所在地区：</span></div>
+                        <div class="right l-right">
+                            <select id="deliverprovince" name="deliverprovince">
+                            </select>
+                            <select id="delivercity" name="delivercity">
+                            </select>
+                            <select id="deliverarea" name="deliverarea"></select>
+                            <script>$( function () { new PCAS("deliverprovince", "delivercity", "deliverarea"); });</script>
+                        </div>
+                        <div class="t-area" style="margin-left: 87px;"><textarea name="addr"  placeholder="请输入详细地址"></textarea></div>
+                    </div>
+                    <div id="base-info-edit-save" class="edit-save-btn clear" style="margin-left: 92px;"><button>保存</button></div>
+                </div>
+            </div>
+            <div class="local-person-profile">
+                <div id="account-info">
+                    <p>账户信息</p>
+                    <ul>
+                        <li class="nav-dotted"></li><u id="account-info-edit"></u>
+                        <li style="margin-left: -15px;">
+                            <span style="vertical-align: top;display: inline-block;"><i>* </i><s>身份证照片：</s></span>
+                            <b style="display: inline-block;border:1px solid #ddd;"><img src="images/IDcard-front-default.jpg" id="l-front-img" style="width: 215px;height: 135px;"/></b>
+                            <b style="display: inline-block;border:1px solid #ddd;"><img src="images/IDcard-behind-default.jpg" id="l-behind-img" style="width: 215px;height: 135px;"/></b>
+                        </li>
+                        <li style="margin-left: -15px;"><span><i>* </i><s>身份证号码：</s></span><b id="l-IDcard-number"></b></li>
+                        <li style="margin-left: -15px;"><span><i>* </i><s>支付宝账号：</s></span><b id="l-AliPay"></b></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="toBeLocalStep">
+                <div class="account-info-edit step-content-account" style="width:900px;display: none;margin-left: 45px;margin-top: -20px;">
+                    <span class="p-profile" style="font-size: 15px;">账户信息</span>
+                    <span class="p-profile-x"></span>
+                    <span class="p-profile-x-edit"><img src="images/edit.jpg"/></span>
+                    <div class="product-album same-box" style="margin-left: -15px;margin-top: 20px;">
+                        <div class="left" ><i>* </i><span>身份证上传：</span></div>
+                        <div class="right l-right" style="width:500px;">
+                            <div class="front" style="float: left;width: 215px;height: 135px;position:relative;">
+                                <img id="IDcard-front-img" src="" style="width:215px;height: 135px;"/>
+                                <span id="uploadButton1"></span>
+                                <input type="hidden" id="hold-front-img"/>
+                            </div>
+                            <div class="behind" style="float: left;width: 215px;height: 135px;margin-left: 5px;position:relative;">
+                                <img id="IDcard-behind-img" src="" style="width:215px;height: 135px;"/>
+                                <span id="uploadButton2"></span>
+                                <input type="hidden" id="hold-behind-img"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear" id="id-card" style="margin-left: -15px;"><i>* </i><span>身份证号码： </span><input type="text" name="IDcard" style="margin-left: 5px;"/></div>
+                    <div class="clear" id="pay-account" style="margin-left: -15px;"><i>* </i><span>支付宝账号： </span><input type="text" name="AliPay" style="margin-left: 5px;"/></div>
+                    <div id="account-info-edit-save" class="edit-save-btn" style="margin-left: 90px;"><button>保存</button></div>
+                </div>
+            </div>
+            <div class="local-person-profile">
+                <div id="my-advance" style="margin-bottom: 60px;">
+                    <p>我的优势</p>
+                    <ul>
+                        <li class="nav-dotted"></li><u id="my-advance-edit"></u>
+                        <li><span style="margin-left: 28px;"><i>* </i><s>职业：</s></span><b id="l-profession"></b></li>
+                        <li><span><i>* </i><s>行业年限：</s></span><b id="l-work-time"></b></li>
+                        <li><span><i>* </i><s>讲解语言：</s></span><b id="l-language"></b></li>
+                        <li><span style="margin-left: 10px;" id="l-pmark"><i></i><s>个人标签：</s></span><b></b></li>
+                        <li><span style="margin-left: 12px;"><i>* </i><s>了解我：</s></span><b id="l-knowme"></b></li>
+                        <li>
+                            <span style="float: left;"><i>* </i><s>个人描述：</s></span>
+                            <b id="l-p-intro" style="float:left;height: 100%;display: inline-block;"></b>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="toBeLocalStep" >
+                <div class="step-content" style="margin-left: 0px;margin-top: -16px;">
+                    <div class="my-advance-edit"  style="width:900px;display: none;margin-left: 45px;margin-top: -4px;">
+                        <span class="p-profile" style="font-size: 15px;">我的优势</span>
+                        <span class="p-profile-x"></span>
+                        <span class="p-profile-x-edit"><img src="images/edit.jpg"/></span>
+                        <div class="profession name clear">
+                            <div class="name-left" style="margin-left: -3px;"><i>* </i><span>职业：</span></div>
+                            <div class="name-right l-right"><input type="text" name="profession" style="width:430px;"/></div>
+                        </div>
+                        <div class="work-time clear">
+                            <div class="work-time-left"><i>* </i><span>行业年限：</span></div>
+                            <div class="work-time-right l-right"><input type="number" min="1" max="99" name="work-time"/> &nbsp;&nbsp;年</div>
+                        </div>
+                        <div class="language clear">
+                            <div class="language-left"><i>* </i><span>讲解语言：</span></div>
+                            <div class="language-right">
+                                <input type="checkbox" name="language" value="中文"/>中文
+                                <input type="checkbox" name="language" value="英文"/>英文
+                                <input type="checkbox" name="language" value="其它"/>其它
+                                <input type="text" id="more-lang" placeholder="多种语言请用空格隔开" style="margin-left: 5px;"/>
+                            </div>
+                        </div>
+                        <div class="p-mark clear">
+                            <div class="p-mark-left"><span>个人标签：</span></div>
+                            <div class="p-mark-right l-right" id="strLabel">
+                                <b id="selectedMark" style="border:none;padding:0;"></b>
+                                <b id="p-mark" style="cursor: pointer;margin-left: 3px;display: inline-block;width: 90px;line-height:25px;padding:0"><s style="font-size: 20px;margin-left:5px;">+ </s>编辑标签&nbsp;</b>
+                                <input type="hidden" id="hold-mark"/>
+                            </div>
+                        </div>
+                         <div class="motto clear">
+                            <div class="motto-left"><i>* </i><span>了解我：</span></div>
+                            <div class="motto-right" style="margin-left: 5px;">
+                                <textarea name="knowme" id="motto" placeholder="0/120" maxlength="119"></textarea>
+                            </div>
+                            <span id="count-str" style="display: inline-block;margin: 85px 0 0 10px;"></span>
+                            <script>
+                                $("#motto").keypress(function () {
+                                    var motto=$("#motto").val().length;
+                                    $("#count-str").html(motto+1);
+                                });
+                            </script>
+                        </div>
+                        <div class="p-desc clear">
+                            <div class="left"><i>* </i><span>个人描述： </span></div>
+                            <div class="p-desc-box" style="height: 100%;margin-left: 10px;">
+                                <div id="detailContent" style="width:96%;height:auto;word-break:break-all;padding-left:10px; text-align:left;margin:0;">
+                                </div>
+                                <div class="add-text-information" style="cursor: pointer;position:relative;">
+                                    <div id="add-text-information"></div>
+                                    <div id="textContainer" style=" position:absolute;left:210px;top:0;margin:0; display:none;z-index:120">
+                                        <div style="position:relative;margin:0;">
+                                            <div style="height:150px;width:500px;">
+                                                <div style="width:20px;height:20px;float:left;position:relative;">
+                                                    <div style="width:0px;height:0;z-index:1;margin:0;border:20px solid #d9d9d9;border-left:20px solid transparent;border-top:20px solid transparent;border-bottom:20px solid transparent;position:absolute;top:0;left:0;"></div>
+                                                    <div style="width:0px;height:0;z-index:1;margin:0;border:18px solid #f0f0ee;border-left:20px solid transparent;border-top:19px solid transparent;border-bottom:19px solid transparent;position:absolute;top:1px;left:2px;"></div>
+                                                </div>
+                                                <div style="float:left;width:250px;height:330px;margin-left:19px;box-shadow:3px 3px 3px #676767;-webkit-box-shadow:3px 3px 3px #676767;-o-box-shadow:3px 3px 3px #676767;-moz-box-shadow:3px 3px 3px #676767;position:relative;background-color:#ff9500;">
+                                                        <div style="width:250px;height:300px;margin:0;z-index:0;position:absolute;top:0;">
+                                                            <textarea style="width:250px;height:150px;margin:0;padding:5px;" id="pDescription" placeholder="请输入你的个人描述" name="p-intro"></textarea>
+                                                        </div>
+                                                    <div style="text-align:center;width:250px;position:absolute;bottom:8px;">
+                                                        <input type="button" value="保存" id="saveButton" style="display:inline;text-indent:0;background-image:url(images/buttonbg.jpg);width:50px;"/>
+                                                        <input type="button" value="关闭" onclick="$('#textContainer').hide()" style="display:inline;margin-left:20px;text-indent:0;background-image:url(images/buttonbg.jpg);width:50px;"/>
+                                                    </div>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span class="addTxt">添加文字信息</span>
+                                </div>
+                                <div class="add-img-information" style="position: relative;">
+                                    <span  class="addTxt">添加图片信息</span>
+                                    <input type="button" value="" id="addPic"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="my-advance-edit-save" class="edit-save-btn clear"><button>保存</button></div>
+                    </div>
+                </div>
+            </div>
+            <div id="anchor"></div>
+            <span id="uploadButton4"></span>
+            <!--<div class="local-person-profile clear">
+                <div id="server-intro">
+                    <p>服务介绍</p>
+                    <ul>
+                        <li class="nav-dotted"></li><u id="server-intro-edit"></u>
+                        <li><span><i>* </i><s>主要服务：</s></span><b>景区</b></li>
+                        <li><span><i>* </i><s>收费规则：</s></span><b>100元/次(人数不超过10人)</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="toBeLocalStep">
+                <div class="server-intro-edit step-content-detail" style="width:900px;display: none;margin-left: 45px;margin-top: -20px;">
+                    <span class="p-profile">服务介绍</span>
+                    <span class="p-profile-x"></span>
+                    <span class="p-profile-x-edit"><img src="images/edit.jpg"/></span>
+                    <div class="booking-notice same-box clear" style="margin-left: 0;">
+                        <div class="left"><i>* </i><span style="font-size: 16px;">主要服务：</span></div>
+                        <textarea placeholder="请输入主要服务"></textarea>
+                    </div>
+                    <div class="booking-notice same-box clear" style="margin-left: 0;">
+                        <div class="left"><i>* </i><span style="font-size: 16px;">收费规则：</span></div>
+                        <textarea placeholder="请输入收费规则"></textarea>
+                    </div>
+                    <div id="server-intro-edit-save" class="edit-save-btn"><button>保存</button></div>
+                </div>
+            </div>-->
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--个人标签遮罩弹窗-->
+<div id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="top">我的标签</div>
+            <div class="mark-middle">
+                <span>特色文化</span>
+                <span>文艺青年</span>
+                <span>美食达人</span>
+                <span>兴趣体验</span>
+                <span>陪你玩</span>
+                <span>活泼开朗</span>
+                <span>开心果</span>
+                <span>热情率真</span>
+            </div>
+            <div class="define">自定义</div>
+            <div class="input-mark"><input type="text" name="input-mark" placeholder="不多于8个字" maxlength="8"/><button id="add-mark" style="background: #ff9500;width: 70px;height: 33px;">添加</button></div>
+            <div class="mark-footer">
+                <div class="mark-call"><button>取消</button></div>
+                <div class="mark-save"><button>保存</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="close"><span>×</span></div>
+    <span id="albums" style="display:none;"></span>
+    <span id="firstPic" style="display:none;"></span>
+</div>
+<!--个人描述弹层-->
+<!--<div id="modal" class="pro-desc">
+    <div class="modal-dialog" style="margin: 30% 0 0 730px;">
+        <div class="modal-content" style="width: 500px;height: 280px;">
+            <div class="top">个人描述</div>
+            <textarea name="" id="" style="width:470px;height: 160px;margin-left:10px;" placeholder="在这里输入产品文字描述"></textarea>
+            <div style="margin: 10px auto;width:90px;height: 35px;background: #ff9500;color: #fff;text-align: center;line-height: 35px;border-radius: 3px;">保存</div>
+        </div>
+    </div>
+    <div class="close"><span>×</span></div>
+</div>-->
+<style>
+    #SWFUpload_0 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        left: 0;
+        top: -33px;
+    }
+    #SWFUpload_1{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 133px;
+        opacity: 0;
+        filter:alpha(opacity=0);
+        cursor:pointer;
+    }
+    #SWFUpload_2
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 133px;
+        opacity: 0;
+        filter:alpha(opacity=0);
+        cursor:pointer;
+
+    }
+     #SWFUpload_3 {
+        position: absolute;
+        width: 214px;
+        height: 120px;
+        opacity: 0;
+        left:0;
+        filter:alpha(opacity=0);
+    }
+    #SWFUpload_4 {
+        opacity: 0;
+        filter:alpha(opacity=0);
+        position: absolute;
+        width:50px;
+        height:30px;
+        left: 0;
+        bottom: 0;
+        display:none;
+    }
+</style>
+<script type="text/javascript" language="javascript" src="js/uploader/swfupload.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader/handlers.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader.js"></script>
+<script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $(".themeItemBox").css("line-height","30px");
+</script>
+<script>
+    $("#addTxt").click(function(){
+        $("#textContainer").show();
+    });
+    $(".close").click(function(){
+        $(".pro-desc").hide();
+    });
+    $(document).ready(function(){
+        checkUser(2);
+        /*var isGuider=userType();
+        if(!isGuider)
+        {
+            window.location='PCenter.html';
+        }*/
+        initData();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/datetime/jquery.datetimepicker.css" />
+    <script type="text/javascript" language="javascript" src="js/datetime/jquery.datetimepicker.js"></script>
+    <title>专属定制</title>
+</head>
+<body>
+<div id="pdf4" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">数据提交中，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="pdf3" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+               <div><img src="images/tipImg.jpg"/></div>
+                <div style="width:300px;ehigth:auto;background-color: white;border: 1px solid transparent;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;color:#737373;">
+                        <div style="font-size:16px;">尊敬的贵宾:</div>
+                        <div style="text-indent:2em;font-size:14px;line-height:30px;">
+                            您好，TravelTailor已收到您的旅行需
+                            求您的专属旅行管家 <span style="color:#ff9500">小T</span> 将在24小时之内
+                            带着定制行程与您联系.谢谢您对
+                            TravelTailor的支持。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:30px; height:auto;float:left;">
+                <a class="close_outbox" title="关闭窗口" onclick="$('#pdf3').hide()">×</a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="pdf2" class="out_box">
+    <div class="out_box_infirst" style="background-color:transparent;">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                        <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+                            请输入出发地
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+    <div class="wechat" style="display:none;">
+        <div class="wechat_float">
+            <div class="wleft wleft1" lang="phonePannel"><img src="images/phone.png" /></div>
+            <div class="wleft wleft1" lang="dim2"><img src="images/wechat.png" /></div>
+            <div class="wleft wleft1" style="display:none;" lang="top"><img src="images/gotop.png" /></div>
+        </div>
+        <div class="wechat_float" style="width:150px;">
+            <div style="height:50px;">
+                <div class="phonePannel info">
+                    028-8729-4247
+                </div>
+            </div>
+            <div class="dim2 info">
+                <img src="images/dim2.png" />
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="container">
+        <div>
+            <div id="header">
+                <div id="out_box">
+                    <a href="index.html"><div id="logo"></div></a>
+                    <div id="navigator">
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="Guider.html">旅行管家</a></li>
+                            <li><a href="Booking.html">专属定制</a></li>
+                            <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div id="loginTip" style="padding:0;">
+                        <div class="loginRight" style="width:100px;">
+                            <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                        </div>
+                        <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                    </div>
+                    <div id="loginTip1">
+                        <a style="color:#ff9500;" href="Login.html">登录</a><a  style="width:4px;margin-left:10px;">|</a><a style="color:#ff9500;" href="Register.html">注册</a>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="width:100%;min-width:1200px;">
+                <div class="banner b_banner">
+                    <img class="images" src="images/booking_banner.jpg"/>
+                    <div class="switchBtBox" style="border-top:1px solid transparent">
+                        <div class="switchBtInbox" style="width:870px;">
+                            <div>抛却世间繁芜，背负行囊，远离尘世</div>
+                            <div style="font-size:54px;font-weight:bold;">专属您的私人定制，独一无二</div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <input type="hidden" value="1" id="target"/>
+                    <input type="hidden" id="star" value="3"/>
+                    <input type="hidden" id="minPrice" value=""/>
+                    <input type="hidden" id="maxPrice" value=""/>
+                    <input type="hidden" id="adt" value="1"/>
+                    <input type="hidden" id="child" value="0"/>
+                    <div style="background-color:#f5f5f5;height:auto;">
+                        <div style="height:auto;">
+                            <div class="loginBox" style="width:100%;border:1px solid transparent">
+                                <form>
+                                    <div class="b_container">
+                                        <div class="b_contentBox">
+                                            <div clas="b_content">
+                                                <div class="b_icontop">
+                                                    <img src="images/book.png" /><span>旅行计划</span>
+                                                </div>
+                                                <div class="inputs">
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>目的地：</div>
+                                                        <div class="themeItem_right">
+                                                            <input type="text" value="" id="dest"   placeholder="请输入目的地" />
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>旅游主题：</div>
+                                                        <input type="hidden" id="theme" value=""/>
+                                                        <div class="themeItem_right" style="height:auto; width: 710px;">
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">深度观光</div>
+                                                                <input type="checkbox" name="theme" value="深度观光" ThemeID='5d20085519e341829c7d2ad7f86c762b' class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">美食美酒</div>
+                                                                <input type="checkbox" name="theme" value="美食美酒" ThemeID='94269f62ef034c0f9b6ac653648a9132' class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">时尚购物</div>
+                                                                <input type="checkbox" name="theme" value="时尚购物" class="selTheme" ThemeID='717df5f9c6be4a6493580184cff8d0e9' />
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">自驾遨游</div>
+                                                                <input type="checkbox" name="theme" value="自驾遨游" ThemeID='5586ef5eab34465ea10fe00d86349527' class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" >艺术人文</div>
+                                                                <input type="checkbox" name="theme" value="艺术人文" ThemeID='ab9384aaa3224c4685d1703ec2fe70a0' class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">古堡建筑</div>
+                                                                <input type="checkbox" name="theme" value="古堡建筑" class="selTheme" ThemeID='af2d95f97ecb4cb6ae365749b85a0035' />
+                                                            </div>
+                                                            <!-- <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">节庆活动</div>
+                                                                <input type="checkbox" name="theme" value="节庆活动" class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">体育赛事</div>
+                                                                <input type="checkbox" name="theme" value="体育赛事" class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">亲子游学</div>
+                                                                <input type="checkbox" name="theme" value="亲子游学" class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">婚嫁蜜月</div>
+                                                                <input type="checkbox" name="theme" value="婚嫁蜜月" class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt">其他</div>
+                                                                <input type="checkbox" name="theme" value="其他" class="selTheme"/>
+                                                            </div>
+                                                            <div class="themeItem theme" style="border:none;width:290px;display:none;text-align:left;" id="other">
+                                                                <input type="text" id="custom" value=""  placeholder="豪华邮轮游，不多于10个字" style="width:198px;height:30px;"/><input type="button" value="确定" class="confirmBt"/>
+                                                            </div> -->
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>酒店星级：</div>
+                                                        <div class="themeItem_right">
+                                                            <img src="images/starSelected.png"/>
+                                                            <img src="images/starSelected.png"/>
+                                                            <img src="images/starSelected.png"/>
+                                                            <i style="margin:0;vertical-align: middle">
+                                                                <img class="starMark" src="images/starUnselected.png"/>
+                                                                <input type="checkbox" class="starCheck" name="starCheck"/>
+                                                            </i>
+                                                            <i style="margin:0;vertical-align: middle">
+                                                                <img class="starMark" src="images/starUnselected.png"/>
+                                                                <input type="checkbox" class="starCheck" name="starCheck"/>
+                                                            </i>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出发城市：</div>
+                                                        <div class="themeItem_right"  style="position:relative;width:350px;"><input type="text" value="" id="getcity_name" name="getcity_name" mod="address|notice" mod_address_source="hotel" mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@" mod_address_reference="getcityid" mod_notice_tip="中文/拼音"  placeholder="请输入出发城市" style="position:absolute;top:0;left:0"/>
+                                                            <div style="width:16px;height:16px;background-image:url(images/location.png);position: absolute;right:10px;top:10px;"></div>
+                                                        </div>
+                                                        <input id="getcityid" name="getcityid" type="hidden" value="{$getcityid}" />
+                                                        <div id="jsContainer" class="jsContainer" style="height:0">
+                                                            <div id="tuna_alert" style="display:none;position:absolute;z-index:999;overflow:hidden;"></div>
+                                                            <div id="tuna_jmpinfo" style="visibility:hidden;position:absolute;z-index:120;"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*</span>出发日期：</div>
+                                                        <div class="themeItem_right" style="position:relative;width:350px;"><input type="text" readonly="readonly"  placeholder="请输入出发日期"  id="time"  value="" class="time" style="position:absolute;top:0;left:0" />
+                                                        <div style="width:16px;height:16px;background-image:url(images/date.png);position: absolute;right:10px;top:10px;"></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出发天数：</div>
+                                                        <div class="themeItem_right">
+                                                            <div style="height:36px;width:auto;">
+                                                                <a class="tickBt">-</a>
+                                                                <input type="text" value="1" readonly="readonly" id="days" style="width:70px;height:30px;vertical-align:middle;text-align:center;text-indent:0;" />
+                                                                <a class="tickBt"   style="margin-left:5px;">+</a>&nbsp;天
+                                                        </div>
+                                                            </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>出行人数：</div>
+                                                        <div class="themeItem_right">
+                                                            <div style="position:relative;">
+                                                                <div class="man">
+                                                                    <div class="manBox">
+                                                                        <div class="manBox_left">成人<span id="adult">1</span></div>
+                                                                        <div class="manBox_right">
+                                                                            <select class="select" lang="0">
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">16+</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div  class="man" style="left:130px;top:0px;">
+                                                                    <div class="manBox">
+                                                                        <div class="manBox_left"  >儿童<span id="children">0</span></div>
+                                                                        <div class="manBox_right">
+                                                                            <select class="select" lang="1">
+                                                                                <option value="0">0</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">16+</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>单人预算：</div>
+                                                        <div class="themeItem_right">
+                                                            <input type="text" value="" id="bugetprice"   placeholder="请输入人均预算" />
+                                                        </div>
+                                                        <!-- <div class="themeItem_right">
+                                                            <div class="themeItem theme_areal">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" title="2000,3000">￥2000-3000</div>
+                                                            </div>
+                                                            <div class="themeItem theme_areal">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" title="3000,5000">￥3000-5000</div>
+                                                        
+                                                            </div>
+                                                            <div class="themeItem theme_areal">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" title="5000,7000">￥5000-7000</div>
+                                                            </div>
+                                                            <div class="themeItem theme_areal">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" title="7000,9000">￥7000-9000</div>
+                                                            </div>
+                                                            <div class="themeItem theme_areal">
+                                                                <div class="selectedImg"></div>
+                                                                <div class="themeItemTxt" title="10000,12000">￥9000以上</div>
+                                                            </div>
+                                                            <div style="clear:both;"></div>
+                                                        </div> -->
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left">其他需求：</div>
+                                                        <div class="themeItem_right">
+                                                            <textarea rows="5" cols="5"  id="otherDemand" placeholder="请输入其他需求，此项选填"></textarea>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div clas="b_content">
+                                                <div class="b_icontop"><img src="images/evolope.png" /><span>个人信息</span></div>
+                                                <div class="inputs">
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>联系人：</div>
+                                                        <div class="themeItem_right"><input placeholder="请填写联系人姓名" type="text" value="" id="contactMan" /></div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>手机号码：</div>
+                                                        <div class="themeItem_right" style="height:auto;">
+                                                            <div><input type="text" value="" id="phone" placeholder="请填写联系电话"/></div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                    </div>
+                                                    <div class="themeItemBox">
+                                                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>验证码：</div>
+                                                        <div class="themeItem_right" style="height:auto;">
+                                                            <div><input type="text" placeholder="请输入验证码" id="image"/><img src="" id="image-vrify" style="width: 88px;margin-left: 10px;vertical-align: middle;height: 35px;border: none;margin-top:-4px;cursor:pointer;"/>&nbsp;<a id="changeBt" style="cursor:pointer;">点击切换</a></div>
+                                                        </div>
+                                                    <div style="clear:both;"></div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div clas="b_content">
+                                                <div class="submitBox" style="border:1px solid transparent">
+                                                    <input type="button" value="立即定制" class="b_sbt"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="code" value=""/>
+                                </form>
+<div style="background-color:#fff;">
+    <div class="b_container" style="background-color:#fff;height:370px;margin-top:0px;border: 1px solid transparent;">
+        <div class="b_intro">
+            <img src="images/advHead.jpg" style="margin-top:35px;"/>
+        </div>
+        <div>
+            <div class="b_advantage">
+                <div class="b_icon">
+                    <img src="images/head.png"/>
+                </div>
+                <div class="b_adv">品牌保障，专业团队</div>
+                <div class="b_advCon">
+                    上市公司卓锐科技，全国数百景区深度合作
+                    <br/>丰富产品库；资深旅行管家+驻点OP<br/> 分工协作，无缝对接
+                </div>
+            </div>
+            <div class="b_advantage">
+                <div class="b_icon">
+                    <img src="images/hat.png"/>
+                </div>
+                <div class="b_adv">透明行程，尊贵享受</div>
+                <div class="b_advCon" style="width:276px;">
+                    各项费用分项报价，行程、价格透明，客户零操心<br/>
+                    全程一对一服务，最优性价比
+                </div>
+            </div>
+            <div class="b_advantage">
+                <div class="b_icon">
+                    <img src="images/moreinfo.png"/>
+                </div>
+                <div class="b_adv">资源丰富，选择多样</div>
+                <div class="b_advCon" style="width:276px;">
+                    一站式服务，最大化整合景区+周边优质旅游资源，<br/>
+                    多种方案选择，为您出行做最全准备
+                </div>
+            </div>
+            <div class="b_advantage">
+                <div class="b_icon">
+                    <img src="images/rocket.png"/>
+                </div>
+                <div class="b_adv">快速报价，投诉承诺</div>
+                <div class="b_advCon">
+                    所有定制需求24小时内完成方案，所有<br/>
+                    投诉0时差就地解决；做到极致<br/>
+                    只为您能完美旅行
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div>
+            <div class="bottom">
+                <div class="footer">
+                    <div class="footerContent">
+                        <div class="text" style="height:45px;margin-top:30px;">
+                            <ul>
+                                <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                                <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                                <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                                <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                                <!--<li><a href="">关于我们</a></li>
+                                <li><a href="">专属定制</a></li><li><a target="_blank" href="">商务合作</a></li>
+                                <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                            </ul>
+                        </div>
+                       <!-- <div class="text">
+                            友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                        </div>-->
+                        <div class="text">
+                            Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                        </div>
+                        <div class="text">
+                            Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                        </div>
+                    </div>
+                    <div class="footerContent" style="width:30%;">
+                        <div class="dem2">
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script type="text/javascript" language="javascript" src="js/fetch-pwd.js"></script>
+<script type="text/javascript" language="javascript" src="js/area/fixdiv.js"></script>
+<script type="text/javascript" language="javascript" src="js/area/address.js"></script>
+
+<script>
+    $("#navigator ul li:eq(2) a").css({"color":"#ff9500","font-weight":"bold"});
+    //调用日期插件
+    $('#time').datetimepicker({
+        lang:'ch',
+        timepicker:false,
+        onChangeDateTime:function(){$(this).hide();}
+    });
+    //获取当前日期
+    function show(){
+       var mydate = new Date();
+       var str = "" + mydate.getFullYear() + "-";
+       str += (mydate.getMonth()+1) + "-";
+       str += mydate.getDate();
+       return str;
+    }
+    $("#time").change(function(){
+        var playdate=$(this).val();
+        var start=new Date(playdate.replace("-", "/").replace("-", "/"));  
+        var end=new Date(show().replace("-", "/").replace("-", "/"));
+        if(end>start){ 
+            alert("出游日期不正确");
+            $(this).val(show());
+            return false;  
+        }
+    })
+    window.onload=function(){
+        checkUser(1);
+    }
+</script>
+</body>
+</html>

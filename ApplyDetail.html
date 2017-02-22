@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <script type="text/javascript" language="javascript" src="js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/common-a.css" />
+    <link rel="stylesheet" type="text/css" href="css/pcenter.css" />
+    <title>如何成为旅行管家</title>
+</head>
+
+<body>
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+        <div id="out_box">
+            <a href="Index.html"><div id="logo"></div></a>
+            <div id="navigator">
+                <ul>
+                    <li><a href="Index.html">首页</a></li>
+                    <li><a href="Guider.html">旅行管家</a></li>
+                    <li><a href="Booking.html">专属定制</a></li>
+                    <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="loginTip" style="padding:0;">
+                <div class="loginRight" style="width:100px;">
+                    <div class="dropList"  id="droplist"><a class="uName"></a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                </div>
+                <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="p_middleBox">
+        <div class="p_middleBoxContainer">
+            <div class="p_leftMeu">
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                            <div class="pHead_rightText">我是旅行管家</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <!-- <li><a name="Production.html" data-required="1">我的产品</a></li> -->
+                            <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                            <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                            <div class="pHead_rightText">我是游客</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                            <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                            <!-- <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                            <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                            <div class="pHead_rightText">个人信息</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="PCenter.html" data-required="0">个人资料</a></li>
+                            <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                            <!-- <li><a name="Message.html" data-required="0">我的消息</a></li> -->
+                            <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="p_rightBox">
+                <div class="p_header" id="p_Header">如何成为旅行管家？？</div>
+                <div class="tianxieStatus" id="tianxieStatus">
+                    <div class="tainxieItem tainxieItemComplete" style="background:url(images/tianxieZt.png) no-repeat">
+                        1&nbsp;填写基本信息
+                    </div>
+                    <div class="tainxieItem tianxieItemArea tainxieItemComplete" style="background:url(images/tianxieZt_4.png) no-repeat;margin-left:-10px;text-indent:20px;">
+                        2&nbsp;我的优势
+                    </div>
+                    <div class="tainxieItem tianxieItemArea tainxieItemComplete" style="background:url(images/tianxieZt_5.png) no-repeat;text-indent:20px;">
+                        3&nbsp; 完成
+                    </div>
+                </div>
+                <div class="wenxinTip" id="wenxinTip">
+                    温馨提示：您的资料已提交！我们将在1-3个工作日进行审核，请您耐心等待！
+                </div>
+                <div id="toBeLocalStep">
+                    <div class="step-content">
+                        <div class="profiles">
+                            <div class="outCon">
+                                <h4 style="margin:0;text-indent:70px;">基本资料</h4>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>姓名：</span></div>
+                                <div class="rigthInput" style="margin-left: 8px;"><span id="strMemberName"></span></div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>性别：</span></div>
+                                <div class="rigthInput"><span id="sex"></span></div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>出生日期：</span></div>
+                                <div class="rigthInput"><span id="birth"></span></div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>职业：</span></div>
+                                <div class="rigthInput">
+                                    <span id="occupation"></span>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>头像：</span></div>
+                                <div class="rigthInput">
+                                    <img src=""  id="imgHead" style="width:118px;"/>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>服务城市：</span></div>
+                                <div class="rigthInput">
+                                    <div class="results1"></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>服务景区：</span></div>
+                                <div class="rigthInput">
+                                    <div class="results1" id="results1"></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>一句话：</span></div>
+                                <div class="rigthInput">
+                                    <div class="t-area l-right"><span id="selfDes"></span></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>我的相册：</span></div>
+                                <div class="rigthInput">
+                                    <div style="position:relative;">
+                                        <div id="albums">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>我的首图：</span></div>
+                                <div class="rigthInput">
+                                    <div style="position:relative;">
+                                        <img src="images/header.jpg"  id="first" style="width:118px;"/>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+                        <div  class="profiles">
+                            <div class="outCon">
+                                <h4 style="margin:0;text-indent:70px;">我的优势</h4>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>提供产品及服务：</span></div>
+                                <div class="rigthInput">
+                                    <div class="t-area l-right"><span id="service"></span></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>文字介绍：</span></div>
+                                <div class="rigthInput">
+                                    <div class="t-area l-right"><span id="txtDescrible"></span></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="p-desc clear outCon">
+                                <div class="leftTxt areaLen"><span>详细介绍： </span></div>
+                                <div class="rigthInput">
+                                    <div id="detailContent" style="width:96%;height:auto;word-break:break-all;padding-left:10px;  text-align:left;margin:0;">
+
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen"><span>身份证号：</span></div>
+                                <div class="rigthInput">
+                                    <div class="t-area l-right"><span  id="strIDCardNumber" /></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen" ><span style="font-size: 14px;">身份证照片：</span></div>
+                                <div class="rigthInput">
+                                    <div class="front idcarImg" style="float: left;position:relative;">
+                                        <img id="IDcard-front-img" src="" style="background:none;"/>
+                                    </div>
+                                    <div class="behind idcarImg" style="float: left;margin-left: 10px;position:relative;">
+                                        <img id="IDcard-behind-img" src="" style="background:none;"/>
+                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                            <div class="outCon">
+                                <div class="leftTxt areaLen">
+                                    <span>支付宝账号： </span>
+                                </div>
+                                <div class="rigthInput">
+                                    <span id="strAliPay"></span>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                            <!--
+                            <div class="outcon">
+                                <div class="lefttxt arealen">
+                                    <span>身份证号码： </span>
+                                </div>
+                            </div>
+                            <div class="clear" id="id-card"><input type="text" id="strIDCardNumber"/></div>
+                            <div class="clear" id="pay-account"><span>支付宝账号： </span></div>-->
+
+                       <!-- <div>
+                            <div class="leftTxt"><span>行业年限：</span></div>
+                            <div class="rigthInput"><input type="number" min="1" max="99" id="intMembYears"/> &nbsp;&nbsp;年</div>
+                            <div style="clear:both;"></div>
+                        </div>-->
+                        <!--<div>
+                            <div class="leftTxt"><span>讲解语言：</span></div>
+                            <div class="rigthInput">
+                                <input name="language" type="checkbox" value="中文"  checked/>中文
+                                <input name="language" type="checkbox" value="英文"/>英文
+                                <input name="language" type="checkbox" value="其它"/>其它
+                                <input type="text" id="more-lang" placeholder="多种语言请用空格隔开" style="margin-left: 5px;"/>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>-->
+                       <!-- <div>
+                            <div class="leftTxt"><span>个人标签：</span></div>
+                            <div class="rigthInput"  id="strLabel">
+                                <b id="selectedMark" style="border:none;padding:0;"></b>
+                                <b id="p-mark" style="cursor: pointer;"><s style="font-size: 20px;font-weight: bold;">+ </s>编辑标签&nbsp;</b>
+                                <input type="hidden" id="hold-mark"/>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>-->
+                        <!--<div>
+                            <div class="leftTxt"><span>了解我：</span></div>
+                            <div class="rigthInput" style="margin-left: 4px;">
+                                <textarea name="" id="motto" placeholder="0/120" maxlength="119"></textarea>
+                            </div>
+                            <div style="clear:both;"></div>
+                            <span id="count-str" style="display: inline-block;margin: 85px 0 0 10px;"></span>
+                            <script>
+                                $("#motto").keypress(function () {
+                                    var motto=$("#motto").val().length;
+                                    $("#count-str").html(motto+1);
+                                });
+                            </script>
+                        </div>-->
+                    </div>
+                    <div>
+                        <a class="goBack" href="howTobeLocal.html">修改</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .outCon{
+        margin-bottom:15px;
+    }
+</style>
+<!--个人标签遮罩弹窗-->
+<!--<div id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="top">我的标签</div>
+            <div class="mark-middle">
+                <span>特色文化</span>
+                <span>文艺青年</span>
+                <span>美食达人</span>
+                <span>兴趣体验</span>
+                <span>陪你玩</span>
+                <span>活泼开朗</span>
+                <span>开心果</span>
+                <span>热情率真</span>
+            </div>
+            <div class="define">自定义</div>
+            <div class="input-mark"><input type="text" name="input-mark" placeholder="不多于8个字" maxlength="8"/><button id="add-mark" style="background: #ff9500;width: 70px;height: 33px;">添加</button></div>
+            <div class="mark-footer">
+                <div class="mark-call"><button>取消</button></div>
+                <div class="mark-save"><button>保存</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="close"><span>×</span></div>
+</div>-->
+
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+<script>
+    $(".themeItemBox").css("line-height","30px");
+    $(document).ready(function(){
+        checkUser(2);
+        initData();
+        /*var isGuider=JSON.parse(localStorage.person);
+        if(!isGuider.guider)
+        {
+            window.location='PCenter.html';
+        }*/
+        /*getUser();
+        var u=JSON.parse(localStorage.person);
+        if(u!=null&&u!=undefined)
+        {
+            $("#strHeadUrl").attr("src", u.header);
+            var hurl= u.header;
+            hurl=hurl.replace("http://imgapi.nihaott.com/","").trim();
+            $("#uHeader").val(hurl);
+            //将相对路径添加到页面的隐藏域中,为了好取其值传入服务器，服务器返回的是绝对路径
+        }*/
+        $(".profiles").show();
+    });
+</script>
+
+</body>
+</html>

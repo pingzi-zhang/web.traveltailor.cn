@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <script type="text/javascript" language="javascript" src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/common-a.css" />
+    <link rel="stylesheet" type="text/css" href="css/pcenter.css" />
+    <title>我的红包</title>
+</head>
+
+<body>
+
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+    <div id="out_box">
+        <a href="Index.html"><div id="logo"></div></a>
+        <div id="navigator">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Guider.html">旅行管家</a></li>
+                <li><a href="Booking.html">专属定制</a></li>
+                <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+            </ul>
+        </div>
+        <div id="loginTip" style="padding:0;">
+            <div class="loginRight" style="width:100px;">
+                <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+            </div>
+            <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+    <div class="p_middleBox">
+    <div class="p_middleBoxContainer">
+        <div class="p_leftMeu">
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                        <div class="pHead_rightText">我是旅行管家</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <!-- <li><a name="Production.html" data-required="1">我的产品</a></li> -->
+                        <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                        <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                        <div class="pHead_rightText">我是游客</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                        <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                        <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="MyRedbag.html" data-required="0">我的红包</a></li>
+                        <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                        <div class="pHead_rightText">个人信息</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li><a name="PCenter.html" data-required="0">个人资料</a></li>
+                        <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                        <li><a name="Message.html" data-required="0">我的消息</a></li>
+                        <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div class="p_rightBox">
+        <div class="p_header">我的红包</div>
+        <div class="p_allMsg">
+            <div class="header_float">
+                <div class="p_allMsg_Header" id="redbag-canuse" style="color:#ff9500">可使用</div>
+            </div>
+            <div class="header_float">
+                <div class="p_allMsg_Header p_allMsg_Header_Areal" id="redbag-used">已使用</div>
+            </div>
+            <div class="header_float">
+                <div class="p_allMsg_Header p_allMsg_Header_Areal" id="redbag-expire">已过期</div>
+            </div>
+        </div>
+        <div class="nothingTip">
+            <div class="tips">
+                <img src="images/Nothing.png" style="vertical-align: middle;margin-top:10px;"/>
+            </div>
+            <div class="tips" style="width:260px;margin-left:20px;background:none;">
+                <div class="tipTitle"  style="font-size:16px;"><span  id="uName"></span>，你好</div>
+                <div class="tipTitle">欢迎登陆TT旅行网！</div>
+                <div class="tipTitle">当前没有红包</div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <!--<div class="same-coupon-box" id="canuse">
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+        </div>
+        <div class="same-coupon-box" id="used">
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+                <div class="badge"><i><img src="images/used.png"/></i></div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+                <div class="badge"><i><img src="images/used.png"/></i></div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+                <div class="badge"><i><img src="images/used.png"/></i></div>
+            </div>
+        </div>
+        <div class="same-coupon-box" id="expire">
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+            <div class="coupon">
+                <div class="center">
+                    <div class="price">￥10.00</div>
+                    <div class="huodong">满100减10</div>
+                    <div  class="effectiveTime">有郊期:2016-08-06</div>
+                </div>
+            </div>
+        </div>
+        <div class="default-state">
+            <div class="default-img"><i><img src="images/log-grey.jpg" alt=""/></i></div>
+            <div><span>亲，您现在暂时没有可使用的红包哦~</span></div>
+        </div>-->
+    </div>
+    <div style="clear:both;"></div>
+</div>
+</div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript" src="js/pcenter.js"></script>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $(".themeItemBox").css("line-height","30px");
+    $(document).ready(function(){
+        checkUser(2);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font-size: 14px;
+  font-family: "Microsoft YaHei UI";
+  color: #a6a6a6;
+}
+a {
+  text-decoration: none;
+}
+input {
+    outline: none;
+    border: none;
+}
+s,
+u {
+  text-decoration: none;
+}
+i {
+  font-style: normal;
+}
+/***************login*******************/
+#login {
+  width: 100%;
+  height: 1080px;
+}
+#login .login-header .wrap,
+#login .login-main .wrap,
+#login .login-footer .wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+#login .login-header {
+  height: 80px;
+  background: #fff;
+}
+#login .login-header .log-left {
+  float: left;
+}
+#login .login-header .log-left .log {
+  float: left;
+  width: 250px;
+}
+#login .login-header .log-left .divider {
+  float: right;
+  height: 40px;
+  margin-top: 20px;
+  border-right: 1px solid #ddd;
+}
+#login .login-header .log-right {
+  float: right;
+  width: 900px;
+  height: 80px;
+  line-height: 80px;
+}
+#login .login-header .log-right .s-left {
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff9500;
+}
+#login .login-header .log-right .s-right {
+  float: right;
+}
+#login .login-header .log-right .s-right a,
+#login .login-header .log-right .s-right span {
+  font-size: 14px;
+  color: #ff9500;
+  margin-left: 5px;
+}
+#login .login-main {
+  height: 800px;
+  background: #f5f5f5;
+}
+#login .login-main .content {
+  width: 800px;
+  margin: 0 auto;
+}
+#login .login-main .content .step {
+  width: 800px;
+  padding: 50px 10px 0 10px;
+}
+#login .login-main .content .step ul #step1,
+#login .login-main .content .step ul #step2 {
+  border-bottom: 4px solid #ddd;
+  width: 300px;
+}
+#login .login-main .content .step ul .active {
+  border-bottom-color: #ff9500 !important;
+  color: #ff9500;
+}
+#login .login-main .content .step ul .active i {
+  background-image: url(../images/step-bg.jpg);
+}
+#login .login-main .content .step ul li {
+  float: left;
+  margin-left: 10px;
+}
+#login .login-main .content .step ul li i {
+  display: block;
+  background: url(../images/step-bg1.jpg) no-repeat;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 5px auto;
+}
+#login .login-main .content .step ul li s {
+  display: block;
+}
+#login .login-main .content .form {
+  clear: both;
+  width: 800px;
+  margin: 150px 0 0 200px;
+}
+#login .login-main .content .form li {
+  padding: 5px;
+  color: #a6a6a6;
+  font-size: 13px;
+}
+#login .login-main .content .form li input {
+  width: 260px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}
+#login .login-main .content .form li input:focus {
+    border-color: #ff9500;
+}
+#login .login-main .content .form li #phone-number,
+#login .login-main .content .form li #new-pwd,
+#login .login-main .content .form li #once-new-pwd {
+  width: 360px;
+}
+#login .login-main .content .form li #next {
+  margin-left: 65px;
+  font-size: 14px;
+  width: 120px;
+}
+#login .login-main .content .form li #confirm {
+  margin-left: 90px;
+}
+#login .login-main .content .form li input[type="button"] {
+  background: #ff9500;
+  color: #fff;
+  width: 90px;
+  margin-left: 10px;
+  outline: none;
+}
+#login .login-main .content .form li i,
+#login .login-main .content .form li .active {
+  background: url(../images/error.jpg) no-repeat;
+  width: 18px;
+  height: 16px;
+  margin-left: 10px;
+  display: none;
+}
+#login .login-main .content .form li .active {
+  background: url(../images/correct.jpg) no-repeat;
+}
+#login .login-main .content .form li .wrong,
+#login .login-main .content .form li .correct {
+  font-size: 12px;
+  color: red;
+  margin-left: 10px;
+  display: inline-block;
+}
+#login .login-main .content .form li .correct {
+  color: #737373;
+}
+#login .login-main .content .form .left {
+  float: left;
+  margin-left: 100px;
+}
+#login .login-main .content .form .right {
+  float: left;
+}
+#login .login-main .content .form .right p {
+  font-size: 15px;
+  padding: 5px;
+}
+#login .login-main .content .form .right p a,
+#login .login-main .content .form .right p s {
+  color: #ff9500;
+}
+#login .login-main .content .form2,
+#login .login-main .content .form3 {
+  display: none;
+}
+#login .login-main .content .form3 {
+  margin-top: 80px;
+}
+#login .login-footer {
+  width: 100%;
+  min-width: 1200px;
+  height: 680px;
+  position: relative;
+}
+#login .login-footer .wrap {
+  width: 1200px;
+  height: 200px;
+  margin: 0 auto;
+  color: #fff;
+}
+#login .login-footer .wrap .leftInfo {
+  width: 900px;
+  height: 100%;
+  float: left;
+}
+#login .login-footer .wrap .leftInfo .siteInfo {
+  width: 100%;
+  margin: 30px 0 35px 0;
+}
+#login .login-footer .wrap .leftInfo .siteInfo .siteInfoItem {
+  width: 85px;
+  height: 16px;
+  float: left;
+  border-right: 2px solid #fff;
+  line-height: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+#login .login-footer .wrap .leftInfo .siteInfo .siteInfoItem a {
+  color: #fff;
+  text-decoration: none;
+}
+#login .login-footer .wrap .leftInfo .link {
+  font-size: 14px;
+  color: #8b8b8b;
+  line-height: 30px;
+}
+#login .login-footer .wrap .leftInfo .link a {
+  color: #8b8b8b;
+}
+#login .login-footer .wrap .rightInfo {
+  width: 300px;
+  height: 100%;
+  float: left;
+}
+#login .login-footer .wrap .rightInfo .wechatCode {
+  margin-top: 20px;
+  width:121px;
+  height: 140px;
+  float: right;
+  background-image: url(../images/qr-code.jpg);
+}

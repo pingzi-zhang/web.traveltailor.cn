@@ -1,0 +1,474 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <title>旅行管家</title>
+</head>
+
+<body>
+    <div class="wechat" style="display:none;">
+        <div class="wechat_float">
+            <div class="wleft wleft1" lang="phonePannel"><img src="images/phone.png" /></div>
+            <div class="wleft wleft1" lang="dim2"><img src="images/wechat.png" /></div>
+            <div class="wleft" style="display:none;" lang="top"><img src="images/gotop.png" /></div>
+        </div>
+        <div class="wechat_float" style="width:150px;">
+            <div style="height:50px;">
+                <div class="phonePannel info">
+                    028-8729-4247
+                </div>
+            </div>
+            <div class="dim2 info">
+                <img src="images/dim2.png" />
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="container">
+        <div id="header">
+            <div id="out_box">
+                <a href="index.html"><div id="logo"></div></a>
+                <div id="navigator">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="Guider.html">旅行管家</a></li>
+                        <li><a href="Booking.html">专属定制</a></li>
+                        <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                    </ul>
+                </div>
+                <div id="loginTip" style="padding:0;">
+                    <div class="loginRight" style="width:100px;">
+                        <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                    </div>
+                    <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+                </div>
+                <div id="loginTip1">
+                    <a style="color:#ff9500;" href="Login.html">登录</a><a  style="width:4px;margin-left:10px;">|</a><a style="color:#ff9500;" href="Register.html">注册</a>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div id="imgBanner">
+            <img src="images/local_banner.jpg" class="images"/>
+            <div class="switchBtBox" style="border-top:1px solid transparent">
+                <div class="switchBtInbox" style="width:870px;">
+                    <div>Travel Tailor 旅行管家</div>
+                    <div style="font-size:54px;font-weight:bold;">旅行管家，带您深度体验当地旅行</div>
+                </div>
+            </div>
+        </div>
+        <div class="banner" style="background-color:#f5f5f5;height:1170px;">
+            <div class="lText">
+                <img src="images/localTxt.png" />
+            </div>
+            <div class="lText" style="margin:40px auto 20px auto;">
+                <ul>
+                    <li>排序：</li>
+                    <li><a href="javascript:void(0);">评价</a></li>
+                    <li><a href="javascript:void(0);">销量</a></li>
+                </ul>
+            </div>
+            <div>
+                <div style="width:100%;height:1170px;border: 1px solid transparent;">
+                    <div class="people">
+                        <div class="peopleItem">
+                            <a>
+                                <div class="peopleItem_back">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="backText" style="margin-top:30px;">
+                                        <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                        <div>
+                                            大家好!欢迎大家来到都江堰景区游览。我将带领大家一一领略都江堰水利工程的伟大与壮丽，让我们一起来见识一下古人的伟大和聪明才智。
+                                        </div>
+                                        <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="pname">钟伟</div>
+                                    <div class="pintro">旅行管家</div>
+                                    <div class="stars">
+                                        <div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="bottomText">
+                                        <div class="bottomText_left">已接待：120</div>
+                                        <div class="bottomText_right">￥<span>100</span></div>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front peopleItem_top">
+                                    <div class="pImg" style="background-image:url(images/zhongwei.png)">
+                                    </div>
+                                    <div class="peopleItem_front">
+                                        <div class="pImg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="peopleItem">
+                            <a>
+                                <div class="peopleItem_back" style="z-index:30;background-color:#ffc859;">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="backText" style="margin-top:30px;">
+                                        <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                        <div>
+                                            我叫龚俊，是一个性格率直，带着一腔热情来到景区从事讲解工作。来 到都江堰的游客，我将用我的热情带着你们去了解都江堰两千多年的 水利文化，去感受李冰治水的艰辛历程。
+                                        </div>
+                                        <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="pname">龚俊</div>
+                                    <div class="pintro">旅行管家</div>
+                                    <div class="stars">
+                                        <div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="bottomText">
+                                        <div class="bottomText_left">已接待：120</div>
+                                        <div class="bottomText_right">￥<span>100</span></div>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front peopleItem_top">
+                                    <div class="pImg" style="background-image:url(images/gongjun_1.png);">
+                                    </div>
+                                    <div class="peopleItem_front">
+                                        <div class="pImg" style="border:5px solid #fff;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="peopleItem">
+                            <a>
+                                <div class="peopleItem_back">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="backText" style="margin-top:30px;">
+                                        <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                        <div>
+                                            大家好，我是都江堰旅行管家，大学 毕业，从业3年，喜爱历史文化，也通琴棋书画。愿 以我的专业知识引领大家一同去领略世界文化遗产秀美的自然风光和 人文景观。
+                                        </div>
+                                        <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="pname">高庭庭</div>
+                                    <div class="pintro">旅行管家</div>
+                                    <div class="stars">
+                                        <div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="bottomText">
+                                        <div class="bottomText_left">已接待：120</div>
+                                        <div class="bottomText_right">￥<span>250</span></div>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front peopleItem_top">
+                                    <div class="pImg" style="background-image:url(images/gaotingting.png)">
+                                    </div>
+                                    <div class="peopleItem_front">
+                                        <div class="pImg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="peopleItem">
+                            <a>
+                                <div class="peopleItem_back">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="backText" style="margin-top:30px;">
+                                        <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                        <div>
+                                            我是一个性格开朗、善于与人交谈的人。人送外号“开心果”。希望我能给您带来一次欢乐的行程
+                                        </div>
+                                        <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                    <div class="pname">秦子浩</div>
+                                    <div class="pintro">旅行管家</div>
+                                    <div class="stars">
+                                        <div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            <div class="star"><img src="images/classStar.png" /></div>
+                                            5
+                                        </div>
+                                    </div>
+                                    <div class="bottomText">
+                                        <div class="bottomText_left">已接待：120</div>
+                                        <div class="bottomText_right">￥<span>250</span></div>
+                                    </div>
+                                </div>
+                                <div class="peopleItem_front peopleItem_top">
+                                    <div class="pImg" style="background-image:url(images/zhenzihao.png)">
+                                    </div>
+                                    <div class="peopleItem_front">
+                                        <div class="pImg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+                <div class="people">
+
+                    <div class="peopleItem">
+                        <a>
+                            <div class="peopleItem_back">
+                                <div class="pImg">
+                                </div>
+                                <div class="backText" style="margin-top:30px;">
+                                    <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                    <div>
+                                        大家好，我叫岳福艳，是都江堰的专职讲解员，在这从事讲解工作13年，对都江堰的人文历史，风土人情，水利工程，有很深的认识！欢迎你的到来哦！
+                                    </div>
+                                    <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front">
+                                <div class="pImg">
+                                </div>
+                                <div class="pname">岳福艳</div>
+                                <div class="pintro">旅行管家</div>
+                                <div class="stars">
+                                    <div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        5
+                                    </div>
+                                </div>
+                                <div class="bottomText">
+                                    <div class="bottomText_left">已接待：120</div>
+                                    <div class="bottomText_right">￥<span>100</span></div>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front peopleItem_top">
+                                <div class="pImg" style="background-image:url(images/yuefuyan.png)">
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="peopleItem">
+                        <a>
+                            <div class="peopleItem_back">
+                                <div class="pImg">
+                                </div>
+                                <div class="backText" style="margin-top:30px;">
+                                    <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                    <div>
+                                        我对待生活乐观向上、为人真诚、坦率，能吃苦耐劳，有较强的适应能力和组织能力。我不单单是一名景区讲解员，我还是一名高级茶艺师！我比较擅长讲解人文！
+                                    </div>
+                                    <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front">
+                                <div class="pImg">
+                                </div>
+                                <div class="pname">罗华玉</div>
+                                <div class="pintro">旅行管家</div>
+                                <div class="stars">
+                                    <div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        5
+                                    </div>
+                                </div>
+                                <div class="bottomText">
+                                    <div class="bottomText_left">已接待：120</div>
+                                    <div class="bottomText_right">￥<span>250</span></div>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front peopleItem_top">
+                                <div class="pImg" style="background-image:url(images/luohuayu.png)">
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="peopleItem">
+                        <a>
+                            <div class="peopleItem_back">
+                                <div class="pImg">
+                                </div>
+                                <div class="backText" style="margin-top:30px;">
+                                    <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                    <div>
+                                        嗨！远道而来的客人，我既不独特也不漂亮，“上知人文地理，下知鸡毛蒜皮”初次相识，玩笑当先，愿你笑口常开！我是一名毕业于大学本科旅游管理的专业旅行管家，具有丰富的专业知识和综合技能。
+                                    </div>
+                                    <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front">
+                                <div class="pImg">
+                                </div>
+                                <div class="pname">罗蜜</div>
+                                <div class="pintro">旅行管家</div>
+                                <div class="stars">
+                                    <div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        5
+                                    </div>
+                                </div>
+                                <div class="bottomText">
+                                    <div class="bottomText_left">已接待：120</div>
+                                    <div class="bottomText_right">￥<span>250</span></div>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front peopleItem_top">
+                                <div class="pImg" style="background-image:url(images/luomi.png)">
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="peopleItem">
+                        <a>
+                            <div class="peopleItem_back">
+                                <div class="pImg">
+                                </div>
+                                <div class="backText" style="margin-top:30px;">
+                                    <i class="quoter" style="text-align:left;"><img src="images/qouter_left.png"/></i>
+                                    <div>
+                                        家好，我是都江堰旅行管家，大学毕业，从业3年，身高一米六八，喜爱历史文化，也通琴棋书画。愿以我的专业知识引领大家一同去领略世界文化遗产秀美的自然风光和人文景观
+                                    </div>
+                                    <i class="quoter" style="text-align:right;"><img src="images/qouter_right.png"/></i>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front">
+                                <div class="pImg">
+                                </div>
+                                <div class="pname">梁晓</div>
+                                <div class="pintro">旅行管家</div>
+                                <div class="stars">
+                                    <div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        <div class="star"><img src="images/classStar.png" /></div>
+                                        5
+                                    </div>
+                                </div>
+                                <div class="bottomText">
+                                    <div class="bottomText_left">已接待：120</div>
+                                    <div class="bottomText_right">￥<span>100</span></div>
+                                </div>
+                            </div>
+                            <div class="peopleItem_front peopleItem_top">
+                                <div class="pImg" style="background-image:url(images/liangxiao.png)">
+                                </div>
+                                <div class="peopleItem_front">
+                                    <div class="pImg">
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a href="">专属定制</a></li><li><a target="_blank" href="">商务合作</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor 致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="js/common.js"></script>
+    <script>
+        $(".people").each(function () {
+            $(this).children(".peopleItem").last().css("margin", 0);
+        });
+        $("#navigator ul li:eq(1) a").css({"color":"#ff9500","font-weight":"bold"});
+        window.onload=function(){
+            checkUser(1);
+        }
+    </script>
+</body>
+</html>

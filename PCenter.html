@@ -1,0 +1,366 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <script type="text/javascript" language="javascript" src="js/json2.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/datetime/jquery.datetimepicker.css" />
+    <script type="text/javascript" language="javascript" src="js/datetime/jquery.datetimepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" href="js/webuploader/webuploader.css">
+    <title>个人中心</title>
+    <style>
+    .webuploader-pick{
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background: #ff9500;
+        padding: 3px 7px;
+        color: #fff;
+        text-align: center;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+<input type="hidden" value="" id="headerUrl" name="headerUrl"/>
+<div id="pdf3" class="out_box">
+    <div class="out_box_infirst">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: white;border: 1px solid transparent;">
+                    <div style="width:80%;height:auto;margin:0 auto;color:#737373;">
+                        <div style="font-size:14px;height:80px;line-height:80px;">
+                            <div id="succed" style="color:green;display:none;">
+                                密码修改成功！
+                            </div>
+                            <div id="modify">
+                                <div style="float:left">
+                                    <img src="images/loader.gif" style="height:80px;width:80px;"/>
+                                </div>
+                                <div class="progress" id="progress">正在修改，请稍等...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+        <div id="out_box">
+            <a href="index.html"><div id="logo"></div></a>
+            <div id="navigator">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="Guider.html">旅行管家</a></li>
+                    <li><a href="Booking.html">专属定制</a></li>
+                    <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="loginTip" style="padding:0;">
+                <div class="loginRight" style="width:100px;">
+                    <div class="dropList"  id="droplist"><a id="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                </div>
+                <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+<div class="p_middleBox">
+    <div class="p_middleBoxContainer">
+        <div class="p_leftMeu">
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                        <div class="pHead_rightText">我是旅行管家</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <!-- <li><a name="Production.html" data-required="1">我的产品</a></li> -->
+                        <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                        <li><a name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                        <div class="pHead_rightText">我是游客</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                        <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                        <!-- <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                        <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="itemBox_out">
+                <div class="itemBox">
+                    <div class="pHead">
+                        <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                        <div class="pHead_rightText">个人信息</div>
+                    </div>
+                </div>
+                <div class="pListMenu">
+                    <ul>
+                        <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="PCenter.html" data-required="0">个人资料</a></li>
+                        <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                        <!-- <li><a name="Message.html" data-required="0">我的消息</a></li> -->
+                        <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="p_rightBox">
+            <div class="p_header">个人资料</div>
+            <div class="p_header" style="color:#b2b2b2;font-weight:normal;border:none;margin:10px 0 10px 0;">亲爱的，请完善填写您真实的资料，更有助于使用本系统哦~</div>
+            <div class="p_info">
+                <div class="inputs" style="margin-left:0;font-weight:normal;">
+                    <div class="themeItemBox">
+                        <div class="themeItem_left"><span class="warn">*&nbsp;</span>当前头像：</div>
+                        <div class="themeItem_right" style="height:auto;">
+                            <div class="left_imgbox">
+                                <img src="" id="imgHead"  style="width:120px; height:90px;"/>
+                            </div>
+                                <div class="left_imgbox" style="margin-left:10px;">
+                                     <!-- <input type="button" id="uploadButton" class="confirmBt" value="点击更换" style=" position:absolute;bottom:0;left:0;"/>
+                                   <input type="file" class="confirmBt" id="uploadconfirmBt" style="opacity: 0;filter: alpha(opacity=0); position:absolute;bottom:0;left:0;"/> -->
+                                   <div id="uploadButton" class="potoBtn" style=" position:absolute;bottom:0;left:0;">
+                                        更换头像
+                                    </div>
+                                </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <!-- <div class="product_album" id="productAlbum">
+                        <span><i>* </i>头像</span>
+                        <div class="upload_photo">
+                            <div id="product_album_list">                  
+                            </div>
+                            <div id="product_album" class="potoBtn">
+                                更换头像
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">昵称：</div>
+                        <div class="themeItem_right">
+                            <input type="text" value="" placeholder="请填写昵称" style="height:30px;" id="nickName"/>
+                            <a class="error"><i><img src="images/err_1.png"/></i><span class="warn">请输入你的昵称</span></a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">姓名：</div>
+                        <div class="themeItem_right">
+                            <input type="text" value="" placeholder="请填写姓名" style="height:30px;" id="name"/>
+                            <a class="error"><i><img src="images/err_1.png"/></i><span class="warn">请输入你的姓名</span></a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">性别：</div>
+                        <div class="themeItem_right">
+                            <input style="width:auto;height:auto;" type="radio" value="1" checked="checked" name="sex" class="sex" id="male"/><label for="male">男</label>
+                            <input style="width:auto;height:auto;" type="radio" value="0" name="sex" class="sex" id="female"/><label for="female">女</label>
+                            <input type="hidden" id="sex" name="sex" value="2"/>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">生日：</div>
+                        <div class="themeItem_right">
+                            <input type="text" value="" readonly="readonly" placeholder="请选择生日" style="height:30px;" id="datetime" />
+                            <a class="error"><i><img src="images/err_1.png"/></i><span class="warn">请填写正确的出生日期</span></a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">联系邮箱：</div>
+                        <div class="themeItem_right">
+                            <input type="text" value="" style="height:30px;" placeholder="请填写您的联系邮箱" id="email"/>
+                            <a class="error"><i><img src="images/err_1.png"/></i><span class="warn">请输入格式正确的邮箱</span></a>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox">
+                        <div class="themeItem_left">手机号码：</div>
+                        <div class="themeItem_right">
+                            <div id="phone" style="height:30px;">
+
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="themeItemBox" style="padding-top:10px;">
+                        <div class="themeItem_left">&nbsp</div>
+                        <div class="themeItem_right">
+                            <input type="button" value="保存" class="saveBt" id="save"/>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #swfupload_0{
+        z-index:-1;
+    }
+</style>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<!-- <script type="text/javascript" language="javascript" src="js/uploader/swfupload.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader/handlers.js"></script>
+<script type="text/javascript" language="javascript" src="js/uploader1.js"></script> -->
+<script type="text/javascript" language="javascript" src="js/webuploader/webuploader.min.js"></script>
+<script>
+$(".themeItemBox").css("line-height","30px");
+    $(document).ready(function(){
+        checkUser(2);
+        getUser();
+        var isGuider=JSON.parse(localStorage.person);
+        if(isGuider.guider)
+        {
+            window.location='ApplyDetail.html';
+        }
+    });
+$('#datetime').datetimepicker({
+    lang:'ch',
+    timepicker:false,
+    onChangeDateTime:function(){$(this).hide();}
+});
+function UploadPicture() {
+    //创建FormData对象
+    var formData = new FormData();
+    formData.append("uploadconfirmBt", $('#uploadconfirmBt').val());
+    alert($('#uploadconfirmBt').val())
+    //formData.append("filPicture", $('#filPicture')[0]);
+    $.ajax({
+        url: jsgImageServer+"/Picture/UploadPicture",
+        type: "POST",
+        data: formData,
+        async: false,  
+        cache: false, 
+        contentType: false,    //不可缺
+        processData: false,    //不可缺
+        //timeout: 60000,
+        beforeSend: function () {
+        },
+        success: function (objResult, textStatus) {
+            console.log(JSON.stringify(objResult))
+            //$("#txtResult").val(JSON.stringify(objResult));
+            //$("#headerUrl").val(JSON.stringify(objResult))
+        },
+        success: function (data) {
+            console.log(data)
+            //$("#txtResult").val(JSON.stringify(objResult));
+            //$("#headerUrl").val(JSON.stringify(objResult))
+        },
+        complete: function (XMLHttpRequest, textStatus) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //alert(XMLHttpRequest.status);
+            //alert(XMLHttpRequest.readyState);
+            //alert(textStatus);
+        }
+    });
+    return false;
+}
+       
+/*$("#uploadconfirmBt").click(function () {
+    UploadPicture();
+}); */
+
+
+
+//上传图片控件实例化
+    //1.头像上传
+    var uploader1 = WebUploader.create({
+        // 选完文件后，是否自动上传。
+        auto: true,
+        // swf文件路径
+        swf: '..b/webuploader/Uploader.swf',
+        // 文件接收服务端。
+         server: jsgImageServer+"/Picture/UploadPicture",
+        // 控件按钮
+        pick: '#uploadButton',
+        //设置传入后台的参数名
+        fileVal:"filPicture",
+        // 只允许选择图片文件。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        method:'POST',
+    });  
+    
+    uploader1.on('uploadSuccess',function (file, response) {
+        var showUrl = response.ShowUrl;
+        $("#imgHead").attr("src",showUrl); 
+        $("#headerUrl").val(response.SaveUrl)
+        //$("#imgHead").css("background-image",'url('+response.ShowUrl+')');
+        var b=document.createElement("b");
+        b.setAttribute("data",response.ShowUrl);
+        $("#uploadButton").append(b);  
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

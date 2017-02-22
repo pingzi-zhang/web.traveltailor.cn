@@ -1,0 +1,205 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="images/T_icon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/CryptoJs/crypto-js.js"></script>
+    <script type="text/javascript" src="js/change.js"></script>
+    <script type="text/javascript" language="javascript" src="js/MoneyFormat/accounting.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <title>订单详情</title>
+</head>
+<body>
+<div id="pdf2" class="out_box">
+    <div class="out_box_infirst" style="background-color:transparent;">
+    </div>
+    <div class="out_box_insecond">
+        <div class="out_box_insecond_child" style="width:350px;height:auto; top:10%;text-align: center;opacity:0.8;filter:alpha(opacity=80);">
+            <div style="width:300px; height:auto;float:left;">
+                <div style="width:300px;height:auto;background-color: #000;color:#fff;border: 1px solid transparent;">
+                    <div style="width:90%;height:auto;margin:20px auto; line-height:25px;">
+                        <div id="error" style="font-size:16px;line-height:30px;text-align:center;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+</div>
+<div id="container">
+    <div id="header" style="border-bottom:1px solid #e0e0e0;">
+        <div id="out_box">
+            <a href="index.html"><div id="logo"></div></a>
+            <div id="navigator">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="Guider.html">旅行管家</a></li>
+                    <li><a href="Booking.html">专属定制</a></li>
+                    <li style="border:none;"><a href="AboutUs.html">关于我们</a></li>
+                </ul>
+            </div>
+            <div id="loginTip" style="padding:0;">
+                <div class="loginRight" style="width:100px;">
+                    <div class="dropList"  id="droplist"><a class="uName">小华</a><a style="width:4px;">|</a><a href="###">退出</a></div>
+                </div>
+                <a id="userHeader" style="width:auto;"><div class="loginRight" style="background-image:url(images/default.png);background-size:cover;"></div></a>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="p_middleBox">
+        <div class="p_middleBoxContainer">
+            <div class="p_leftMeu">
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_0.png"/></div>
+                            <div class="pHead_rightText">我是旅行管家</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <!-- <li><a name="Production.html" data-required="1">我的产品</a></li> -->
+                            <li><a name="replaceSellProduct.html" data-required="1">代卖产品</a></li>
+                            <li style="border-left:3px solid #ff9500;background-color:#fff;"><a style="color:#ff9500;font-weight:bold;" name="OrderOfGuider.html" data-required="1">我的订单</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_1.png"/></div>
+                            <div class="pHead_rightText">我是游客</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="OrderOfTourist.html" data-required="0">我的订单</a></li>
+                            <li><a name="BookList.html" data-required="0">我的定制</a></li>
+                            <!-- <li><a name="MyRedbag.html" data-required="0">我的红包</a></li>
+                            <li><a name="normalPassenger.html" data-required="0">常用旅客</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="itemBox_out">
+                    <div class="itemBox">
+                        <div class="pHead">
+                            <div class="pHead_leftIcon"><img src="images/pc_2.png"/></div>
+                            <div class="pHead_rightText">个人信息</div>
+                        </div>
+                    </div>
+                    <div class="pListMenu">
+                        <ul>
+                            <li><a name="PCenter.html" data-required="0">个人资料</a></li>
+                            <li><a name="MyPurse.html" data-required="0">我的钱包</a></li>
+                            <!-- <li><a name="Message.html" data-required="0">我的消息</a></li> -->
+                            <li><a name="Modify_PWD.html" data-required="0">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="p_rightBox">
+                <div class="p_header">订单详情</div>
+                <div class="detailTop">
+                    <div class="curStat">当前交易状态：<!-- 订单生成，以往成付款， --><span style="font-size:14px;color:#ff9500;" id="ostatus">【等待消费】</span></div>
+                    <div class="cash">
+                        <span style="color:#ff9500;">总金额：￥</span><span id="afterProior"  style="color:#ff9500;font-size:30px;"></span><span>&nbsp;</span>(订单金额：<span>￥</span><span id="allMoney"></span>，优惠金额：<span>￥</span><span id="proior"></span>)
+                    </div>
+                </div>
+                <div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">订单号：</div>
+                        <div class="details_InfoRight"><span id="oId"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">下单日期：</div>
+                        <div class="details_InfoRight"><span id="oTime"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">游客：</div>
+                        <div class="details_InfoRight"><span id="tName"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">联系方式：</div>
+                        <div class="details_InfoRight"><span id="tPhone"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <!--<div class="detailsInfo">
+                        <div class="details_InfoLeft">产品名称：</div>
+                        <div class="details_InfoRight"><span id="oProdcut"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">产品价格：</div>
+                        <div class="details_InfoRight"><span id="pPrice"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="detailsInfo">
+                        <div class="details_InfoLeft">数量：</div>
+                        <div class="details_InfoRight"><span id="oCount"></span></div>
+                        <div style="clear:both;"></div>
+                    </div>-->
+                    <div id="detailsInfo">
+
+                    </div>
+
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="footer">
+            <div class="footerContent">
+                <div class="text" style="height:45px;margin-top:30px;">
+                    <ul>
+                        <li style="text-align:left;padding: 0 20px 0 0;"><a target="_blank" href="JoinUs.html">诚聘英才</a></li>
+                        <li><a target="_blank" href="UsualRequestion.html">常见问题</a></li>
+                        <li><a target="_blank" href="ContactUs.html">商务合作</a></li>
+                        <li style="border-right:none;"><a target="_blank" href="ContactUs.html">联系我们</a></li>
+                        <!--<li><a href="">关于我们</a></li>
+                        <li><a target="_blank" href="">商务合作</a></li>
+                        <li><a href="">专属定制</a></li>
+                        <li style="border-right:none;"><a href="">网站地图</a></li>-->
+                    </ul>
+                </div>
+                <!--<div class="text">
+                    友情链接：<a target="_blank" href="http://www.drore.com/">浙江卓锐科技股份有限公司</a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy517.com/index.do">都江堰景区 </a> &nbsp; &nbsp;<a target="_blank" href="http://www.djy.gov.cn/">都江堰管理局</a>
+                </div>-->
+                <div class="text">
+                    Copyright © 2016 traveltailor.cn All Rights Reserved  蜀ICP备16021940号-2
+                </div>
+                <div class="text">
+                    Traveltailor  致慧科技（中国）有限公司 &nbsp;&nbsp;Address：浙江省杭州市西湖区体育场路580号昆仑大厦3号楼
+                </div>
+            </div>
+            <div class="footerContent" style="width:30%;">
+                <div class="dem2">
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" language="javascript" src="js/common.js"></script>
+<script>
+    $(".themeItemBox").css("line-height","30px");
+    $(document).ready(function(){
+        checkUser(2);
+        orderDetail();
+        var isGuider=userType();
+        if(!isGuider)
+        {
+            window.location='PCenter.html';
+        }
+    });
+</script>
+</body>
+</html>
